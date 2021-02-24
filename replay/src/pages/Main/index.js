@@ -5,7 +5,11 @@ import SongCard from 'comps/SongCard';
 
 const Main = ({}) => {
     return (
-        <SongCard />
+        <div className="testRow">
+            <SongCard />
+            <SongCard />
+            <SongCard />
+        </div>
     )
 }
 
