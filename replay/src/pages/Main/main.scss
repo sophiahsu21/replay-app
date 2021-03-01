@@ -1,6 +1,17 @@
-.testRow {
+.container {
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
     display: flex;
+    flex-direction: row;
+    gap: 100px;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    overflow: hidden;
+}
+
+.left {
+}
+
+.right {
 }
