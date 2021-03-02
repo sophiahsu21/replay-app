@@ -1,11 +1,33 @@
 import './App.scss';
-import Main from 'pages/Main';
+import SignIn from 'pages/SignIn';
+import CreateAccount from 'pages/CreateAccount';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <Router>
+      <div className="App">
+        <div>
+          <Link to="/">Sign In</Link>
+          <Link to="/CreateAccount">Sign Up</Link>
+        </div>
+        <Switch>
+          <Route exact path="/">
+            <SignIn />
+          </Route>
+          <Route exact path="/CreateAccount">
+            <CreateAccount />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

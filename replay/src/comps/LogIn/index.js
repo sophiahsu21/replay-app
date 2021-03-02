@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+import {
+    BrowserRouter as Router,
+    Link
+} from "react-router-dom";
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -56,6 +61,7 @@ const SUMsg = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #F5F5F5;
 
     :hover {
         cursor: pointer;
@@ -77,26 +83,29 @@ const LogIn = ({ onLogInComplete }) => {
     const [email, setEmail] = useState("");
     const [pass, setPass] = useState("");
 
-    return <Container>
-        <LogoImg src="replay_logo.png" width="62px" alt="logo" />
-        <Heading>Welcome Back</Heading>
-        <FormInput type='text' placeholder='Email' onChange={(e) => {
-            setEmail(e.target.value)
-        }} />
-        <FormInput type='password' placeholder='Password' onChange={(e) => {
-            setPass(e.target.value)
-        }} />
-        <FormButton onClick={() => {
-            onLogInComplete(email, pass)
-        }}>
-            Log In
-        </FormButton>
-        <SUMsg>
-            <p>Don't have an account?</p>
-            <h5>SIGN UP</h5>
-        </SUMsg>
-
-    </Container>
+    return <Router>
+        <Container>
+            <LogoImg src="replay_logo.png" width="62px" alt="logo" />
+            <Heading>Welcome Back</Heading>
+            <FormInput type='text' placeholder='Email' onChange={(e) => {
+                setEmail(e.target.value)
+            }} />
+            <FormInput type='password' placeholder='Password' onChange={(e) => {
+                setPass(e.target.value)
+            }} />
+            <FormButton onClick={() => {
+                onLogInComplete(email, pass)
+            }}>
+                Log In
+            </FormButton>
+            <Link to='/CreateAccount'>
+                <SUMsg>
+                    <p>Don't have an account?</p>
+                    <h5>SIGN UP</h5>
+                </SUMsg>
+            </Link>
+        </Container>
+    </Router>
 }
 
 LogIn.defaultProps = {
