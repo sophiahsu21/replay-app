@@ -1,9 +1,12 @@
 import './App.scss';
 
 //import pages
-import SignIn from 'pages/SignIn';
-import CreateAccount from 'pages/CreateAccount';
-import CreatePlaylist from 'pages/CreatePlaylist';
+import LandingPage from 'pages/LandingPage';
+import LogIn from 'pages/LogIn';
+import Register from 'pages/Register';
+import NewPlaylist from 'pages/NewPlaylist';
+
+import AddSong from 'comps/AddSong';
 
 import {
   BrowserRouter as Router,
@@ -19,19 +22,24 @@ function App() {
       <div className="App">
         <div className="pagesIndex">
           <h1>Pages</h1>
-          <Link to="/">Sign In</Link>
-          <Link to="/CreateAccount">Sign Up</Link>
-          <Link to="/CreatePlaylist">Create Playlists</Link>
+          <Link to="/">Landing Page</Link>
+          <Link to="/LogIn">Sign In</Link>
+          <Link to="/Register">Sign Up</Link>
+          <Link to="/NewPlaylist">Create Playlists</Link>
+          <AddSong />
         </div>
         <Switch>
           <Route exact path="/">
-            <SignIn />
+            <LandingPage />
           </Route>
-          <Route exact path="/CreateAccount">
-            <CreateAccount />
+          <Route exact path="/LogIn">
+            <LogIn />
           </Route>
-          <Route exact path="/CreatePlaylist">
-            <CreatePlaylist />
+          <Route exact path="/Register">
+            <Register />
+          </Route>
+          <Route exact path="/NewPlaylist">
+            <NewPlaylist />
           </Route>
         </Switch>
       </div>
