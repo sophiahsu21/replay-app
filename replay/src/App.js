@@ -5,8 +5,9 @@ import LandingPage from 'pages/LandingPage';
 import LogIn from 'pages/LogIn';
 import Register from 'pages/Register';
 import NewPlaylist from 'pages/NewPlaylist';
+import PlaylistAdd from 'pages/PlaylistAdd';
+import AddSongs from 'pages/AddSongs';
 
-import AddSong from 'comps/AddSong';
 
 import {
   BrowserRouter as Router,
@@ -26,7 +27,8 @@ function App() {
           <Link to="/LogIn">Sign In</Link>
           <Link to="/Register">Sign Up</Link>
           <Link to="/NewPlaylist">Create Playlists</Link>
-          <AddSong />
+          <Link to="/PlaylistAdd">Playlist Add</Link>
+          <Link to="/AddSongs">Add Songs</Link>
         </div>
         <Switch>
           <Route exact path="/">
@@ -40,6 +42,12 @@ function App() {
           </Route>
           <Route exact path="/NewPlaylist">
             <NewPlaylist />
+          </Route>
+          <Route exact path="/PlaylistAdd">
+            <PlaylistAdd />
+          </Route>
+          <Route exact path="/AddSongs">
+            <AddSongs />
           </Route>
         </Switch>
       </div>

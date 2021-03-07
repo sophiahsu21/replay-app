@@ -26,7 +26,7 @@ const Register = () => {
         }
     }
 
-    return <div className="container">
+    return <div className="r-container">
         <div className="regCont">
             <img src="replay_logo.png" className="logoimg" width="62px" alt="logo" />
             <h1>Create an Account</h1>
@@ -40,7 +40,9 @@ const Register = () => {
                 setPass(e.target.value)
             } />
             <button onClick={HandleRegister}>Create New Account</button>
-            <div className="msg" onClick={() => history.push("/LogIn")}>
+            <div className="msg" onClick={() =>
+                history.push("/LogIn")
+            }>
                 <h5>Already have an account?</h5>
                 <h5 className="bold">LOG IN</h5>
             </div>
