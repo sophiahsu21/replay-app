@@ -1,0 +1,44 @@
+.lp-container {
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background-image: url("https://images.unsplash.com/photo-1588420838391-4713abed19c8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80");
+    background-color: rgba(98, 30, 15, 0.65);
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.gs-cont {
+    // position: absolute;
+    // bottom: 125px;
+    display: flex;
+    flex-direction: column;
+    max-width: 275px;
+}
+
+.gs-cont h3 {
+    //color: #F06449;
+    line-height: 1.6em;
+    margin-top: 250px;
+}
+
+.gs-btn {
+    margin-top: 65px;
+    background-color: transparent;
+}
+
+/*
+img {
+    transform: rotate(-90deg);
+    
+}
+*/

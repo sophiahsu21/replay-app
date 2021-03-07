@@ -7,7 +7,7 @@ import {
     useHistory
 } from "react-router-dom";
 
-const NewPlaylist = ({}) => {
+const NewPlaylist = () => {
 
     const history = useHistory();
 
@@ -18,7 +18,7 @@ const NewPlaylist = ({}) => {
     }
 
     return (
-        <div className="container">
+        <div className="np-container">
             <div className="cpCont">
                 <div className="playlistCoverCont">
                     <h3>Add Playlist Cover</h3>
@@ -33,10 +33,10 @@ const NewPlaylist = ({}) => {
                     setPlaylist(e.target.value)
                 }} />
                 <div className="btnCont">
-                    <button className="cancel" onClick={() => history.push("/NewPlaylist")}>Cancel</button>
+                    <button className="cancel" onClick={() => history.push("/Register")}>Cancel</button>
                     <button className="create" onClick={() =>
-                        HandleCreatePlaylistName(playlist),
-                        history.push("/NewPlaylist")
+                        // HandleCreatePlaylistName(playlist),
+                        history.push("/PlaylistAdd")
                     }>Create</button>
                 </div>
             </div>

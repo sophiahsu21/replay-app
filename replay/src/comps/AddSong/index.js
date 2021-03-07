@@ -5,14 +5,15 @@ import {CgAdd} from "react-icons/cg";
 
 const Container = styled.div`
     background-color: #121212;
-    min-width: 321px;
+    min-width: 291px;
     min-height: 77px;
-    max-width: 321px;
+    max-width: 291px;
     max-height: 77px;
     border-radius: 15px;
     display: flex;
     align-items: center;
     transition: 200ms ease-in-out;
+    margin: 0 15px;
 
     :hover {
         background-color: #1E1C21;
@@ -21,7 +22,7 @@ const Container = styled.div`
 `;
 
 const SongCont = styled.div`
-    margin: 0 33px;
+    margin: 0 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -51,7 +52,11 @@ const SongDet = styled.div`
 const AddSong = ({songname, songartist}) => {
     return <Container>
         <SongCont>
-            <CgAdd color="#F5F5F5" size="24px"/> {/*onclick goes here*/}
+            <CgAdd
+                color="#F5F5F5"
+                size="24px"
+                cursor="pointer"
+            /> {/*onclick goes here*/}
             <SongDet>
                 <h5>{songname}</h5>
                 <h6>{songartist}</h6>

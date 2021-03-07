@@ -32,7 +32,7 @@ const LogIn = () => {
         }
     }
 
-    return <div className="container">
+    return <div className="li-container">
         <div className="logCont">
             <img src="replay_logo.png" className="logoimg" width="62px" alt="logo" />
             <h1>Welcome Back</h1>
@@ -44,7 +44,9 @@ const LogIn = () => {
             } />
             <div className="error">{error}</div>
             <button onClick={HandleLogin}>Log In</button>
-            <div className="msg" onClick={() => history.push("/Register")}>
+            <div className="msg" onClick={() =>
+                history.push("/Register")
+            }>
                 <h5>Don't have an account?</h5>
                 <h5 className="bold">SIGN UP</h5>
             </div>
