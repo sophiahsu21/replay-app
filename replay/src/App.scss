@@ -8,8 +8,10 @@
     900 -> black
 */
 
-@import './pages/SignIn/signin.scss';
-@import './pages/CreateAccount/createaccount.scss';
+@import './pages/LandingPage/landingpage.scss';
+@import './pages/Register/register.scss';
+@import './pages/LogIn/login.scss';
+@import './pages/NewPlaylist/newplaylist.scss';
 
 .App {
     margin: 0 auto;
