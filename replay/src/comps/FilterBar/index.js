@@ -28,7 +28,7 @@ const SearchField = styled.input`
     min-height: 32px;
     max-width: 282px;
     max-height: 32px;
-    padding: 8px 15px;
+    padding: 8px 45px 8px 15px;
     border: none;
     background-color: #423F46;
     color: #F5F5F5;
