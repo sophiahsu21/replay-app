@@ -7,8 +7,9 @@ import Register from 'pages/Register';
 import NewPlaylist from 'pages/NewPlaylist';
 import PlaylistAdd from 'pages/PlaylistAdd';
 import AddSongs from 'pages/AddSongs';
-
-
+import Home from 'pages/home';
+import Profile from 'pages/Profile';
+import ViewPlaylist from 'pages/ViewPlaylist';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +30,9 @@ function App() {
           <Link to="/NewPlaylist">Create Playlists</Link>
           <Link to="/PlaylistAdd">Playlist Add</Link>
           <Link to="/AddSongs">Add Songs</Link>
+          <Link to="/Home">Home</Link>
+          <Link to="/Profile">Profile</Link>
+          <Link to="/ViewPlaylist">View Playlist</Link>
         </div>
         <Switch>
           <Route exact path="/">
@@ -49,6 +53,15 @@ function App() {
           <Route exact path="/AddSongs">
             <AddSongs />
           </Route>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/Profile">
+            <Profile />
+          </Route>    
+          <Route exact path="/ViewPlaylist">
+            <ViewPlaylist />
+          </Route>         
         </Switch>
       </div>
     </Router>
