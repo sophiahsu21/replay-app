@@ -7,6 +7,7 @@ import Register from 'pages/Register';
 import NewPlaylist from 'pages/NewPlaylist';
 import PlaylistAdd from 'pages/PlaylistAdd';
 import AddSongs from 'pages/AddSongs';
+import Modal from 'comps/Modal';
 
 
 import {
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Modal />
         <div className="pagesIndex">
           <h1>Pages</h1>
           <Link to="/">Landing Page</Link>
