@@ -35,7 +35,7 @@ const SearchField = styled.input`
     opacity: 1;
 `;
 
-const FilterBar = () => {
+const FilterBar = ({ placeholder, onClick }) => {
 
     const history = useHistory();
 
@@ -48,19 +48,22 @@ const FilterBar = () => {
                 size="1.25rem"
                 cursor="pointer"
             />
-            <SearchField type='text' placeholder='Search for Songs' />
+            <SearchField type='text' placeholder={placeholder} />
         </Icon>
         <CgClose
             style={{marginLeft: "15px", position: "relative", top: "14px"}}
             color="#F5F5F5"
             size="1.5rem"
             cursor="pointer"
-            onClick={() => history.push("/PlaylistAdd")}
+            // onClick={() => history.push("/PlaylistAdd")}
+            onClick={onClick}
         />
     </Container>
 }
 
 FilterBar.defaultProps = {
+    placeholder:'Search for Songs',
+    onClick:()=>{}
 }
 
 export default FilterBar;

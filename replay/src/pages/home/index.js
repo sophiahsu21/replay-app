@@ -43,8 +43,8 @@ const Home = () => {
     },[])
 
     return <div className="home-container">
+        <FilterBar placeholder='Search for Playlists'/>
         <div className="home-cont">
-        <FilterBar />
         <div className="home-text"><h2>Welcome Back</h2></div>
             <PostCard/>
             <PostCard/>
