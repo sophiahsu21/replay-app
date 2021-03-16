@@ -30,7 +30,7 @@ const PlaylistName = styled.div`
 position:relative;
 margin: 20px 10px;
 font-size:16px;
-font-weight:600;
+font-weight:700;
 `;
 const PlaylistIcon = styled.img`
 display:block;

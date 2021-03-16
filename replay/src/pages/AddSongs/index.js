@@ -11,7 +11,7 @@ const AddSongs = () => {
     const history = useHistory();
 
     return <div className="as-container">
-        <FilterBar />
+        <FilterBar placeholder='Search for Songs' onClick={() => history.push("/PlaylistAdd")}/>
         <div className="as-songCont">
             {/* based on filter */}
             <AddSong />

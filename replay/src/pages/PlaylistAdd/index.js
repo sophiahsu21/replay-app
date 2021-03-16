@@ -15,9 +15,8 @@ const PlaylistAdd = () => {
 
     return <div className="pa-container">
         <SearchBar />
-        <div className="songCont">
+        {/* <div className="songCont">
             <p>Suggestions</p>
-            {/* add song comp details will be of song details retrieved from database */}
             <AddSong />
             <AddSong
                 songname="IDK You Yet"
@@ -35,7 +34,7 @@ const PlaylistAdd = () => {
                 songname="Gone"
                 songartist="Blake Rose"
             />
-        </div>
+        </div> */}
         <div className="pa-btnCont">
             <button className="cancel" onClick={() => history.push("/NewPlaylist")}>Back</button>
             <button className="create" onClick={() =>

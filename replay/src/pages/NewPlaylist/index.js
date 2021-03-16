@@ -36,7 +36,7 @@ const NewPlaylist = () => {
                     <button className="cancel" onClick={() => history.push("/Register")}>Cancel</button>
                     <button className="create" onClick={() =>
                         // HandleCreatePlaylistName(playlist),
-                        history.push("/AddSongs")
+                        history.push("/PlaylistAdd")
                     }>Create</button>
                 </div>
             </div>

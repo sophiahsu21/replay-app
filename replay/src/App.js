@@ -24,7 +24,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Modal />
         <div className="pagesIndex">
           <h1>Pages</h1>
           <Link to="/">Landing Page</Link>
