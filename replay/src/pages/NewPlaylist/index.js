@@ -25,7 +25,7 @@ const NewPlaylist = () => {
                     <div className="playlistCover" onClick={() => {
                         // upload photo
                     }}>
-                        <BsMusicNoteBeamed color="white" size="48px" />
+                        <BsMusicNoteBeamed color="#F5F5F5" size="48px" />
                     </div>
                 </div>
                 <h3>Add Playlist Name</h3>
@@ -36,7 +36,7 @@ const NewPlaylist = () => {
                     <button className="cancel" onClick={() => history.push("/Register")}>Cancel</button>
                     <button className="create" onClick={() =>
                         // HandleCreatePlaylistName(playlist),
-                        history.push("/PlaylistAdd")
+                        history.push("/AddSongs")
                     }>Create</button>
                 </div>
             </div>

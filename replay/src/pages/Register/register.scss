@@ -25,6 +25,15 @@ h1 {
     max-width: 165px;
 }
 
+.input-icon {
+    position: relative;
+    display: flex;
+}
+
+.input-form {
+    padding-left: 3rem;
+}
+
 input {
     min-height: 51px;
     min-width: 275px;

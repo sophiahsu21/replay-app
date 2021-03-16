@@ -10,6 +10,8 @@ import AddSongs from 'pages/AddSongs';
 import Home from 'pages/home';
 import Profile from 'pages/Profile';
 import ViewPlaylist from 'pages/ViewPlaylist';
+import Modal from 'comps/Modal';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +24,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <Modal />
         <div className="pagesIndex">
           <h1>Pages</h1>
           <Link to="/">Landing Page</Link>
