@@ -13,8 +13,12 @@ const NewPlaylist = () => {
 
     const [playlist, setPlaylist] = useState("");
 
-    const HandleCreatePlaylistName = () => {
+    const HandleCreatePlaylistName = async () => {
         //create a playlist
+        const resp = await axios.post("https://replay-music-app.herokuapp.com/api/playlists", { playlistId:playlist });
+        console.log(resp.data);
+        // if statement maybe
+        // history.push("/PlaylistAdd")
     }
 
     return (
@@ -34,10 +38,7 @@ const NewPlaylist = () => {
                 }} />
                 <div className="btnCont">
                     <button className="cancel" onClick={() => history.push("/Register")}>Cancel</button>
-                    <button className="create" onClick={() =>
-                        // HandleCreatePlaylistName(playlist),
-                        history.push("/PlaylistAdd")
-                    }>Create</button>
+                    <button className="create" onClick={HandleCreatePlaylistName}>Create</button>
                 </div>
             </div>
         </div>

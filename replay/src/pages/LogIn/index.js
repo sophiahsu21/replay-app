@@ -25,7 +25,7 @@ const LogIn = () => {
             const token = resp.data;
             sessionStorage.setItem("token", token);
             axios.defaults.headers.common['Authorization'] = token;
-            history.push("/profile");
+            history.push("/Home");
         } else {
             //update a state to show an error
             setError("Email or password is incorrect.");
