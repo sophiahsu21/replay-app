@@ -12,18 +12,27 @@ const InfoContainer = styled.div`
 
 const Profile = styled.div`
 position:relative  ;
-  min-width: 145px;
-  min-height: 145px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   background: linear-gradient(180deg, rgba(240, 100, 73, 0.54) 0%, rgba(255, 255, 255, 0) 100%), rgba(194, 181, 181, 0.34);
   z-index: 0;
-  background-image: ${(props) =>
-    props.profile ? props.profile : "url('avatar.svg')"};
-  background-size: 67px 67px;
-
-  background-position:center center;
-  background-repeat: no-repeat;
+  /* background-image: ${(props) =>
+    props.profile ? props.profile : "url('avatar.svg')"}; */
+  /* background-size: 67px 67px; */
+  background-image:"url('avatar.svg')";
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-repeat: no-repeat; 
+  object-fit:contain;
+  overflow:hidden;
 margin-top:85px;
+& > img {
+  width:auto;
+  height:100%;
+  
+}
 `;
 
 const NameUser = styled.h3`
@@ -35,11 +44,11 @@ const NameUser = styled.h3`
 `;
 
 
-const Avatar = ({ profile, name }) => {
+const Avatar = ({ profile, name, onClick }) => {
   return (
-    <InfoContainer>
-      <Profile profile={profile}>
-        {" "}
+    <InfoContainer onClick={onClick}>
+      <Profile>
+        <img src={profile} />
       </Profile>
       <NameUser>{name}</NameUser>
     </InfoContainer>
@@ -47,7 +56,9 @@ const Avatar = ({ profile, name }) => {
 };
 
 Avatar.defaultProps = {
-    name: "Simon"
+    name: "Simon",
+    onClick:()=>{},
+
 }
 
 export default Avatar;
