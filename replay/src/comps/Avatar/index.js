@@ -41,7 +41,7 @@ const Avatar = ({ profile, name }) => {
       <Profile profile={profile}>
         {" "}
       </Profile>
-      <NameUser>{name}</NameUser>
+      {/* <NameUser>{name}</NameUser> */}
     </InfoContainer>
   );
 };
