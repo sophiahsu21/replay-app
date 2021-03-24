@@ -4,25 +4,47 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 100px;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 
-    .filter {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    // .filter {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
 
     .home-cont{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        // background-color: blue;
+        position: relative;
+        top: 75px;
     }
     .home-text{
-        margin-left:30px;
+        // margin-left:30px;
+        // background: yellow;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+    .home-playlist {
+        // width: 500px;
+        min-height: 600px;
+        max-height: 600px;
+        display:flex;
+        position: relative;
+        top: 0;
+        
+        // top: 45px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y:scroll;
+        // background-color:red;
     }
 }
 

@@ -12,17 +12,21 @@ import {
 } from "react-router-dom";
 
 
-const Home = () => {
-    /*
-    check if the token is expired or if there is a token at all
+const Home =  () => {
+    const [playlist, setPlaylist] = useState([]);
 
-        if not
-        -> redirect to login
+    const GetPlaylists = async () => {
+        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlists");
 
-    axios call to get my user profile
-    axios call to update my user profile
+        console.log(resp);
+        setPlaylist(resp.data.playlists);
+    }
 
-    */
+    useEffect(() => {
+        CheckToken();
+        GetPlaylists()
+    },[]);
+
 
     const history = useHistory();
 
@@ -45,11 +49,20 @@ const Home = () => {
     return <div className="home-container">
         <FilterBar placeholder='Search for Playlists'/>
         <div className="home-cont">
-        <div className="home-text"><h2>Welcome Back</h2></div>
-            <PostCard/>
-            <PostCard/>
-            <NavBar className="navbar"/>
+            <div className="home-text"><h2>Welcome Back</h2></div>
+            <div className="home-playlist">
+                {playlist.map((o) => {
+                        return (
+                            <PostCard
+                                plname={o.name}
+                                // plimg={o.img}
+
+                            />
+                        );
+                    })}
             </div>
+            <NavBar className="navbar"/>
+        </div>
     </div>
 }
 

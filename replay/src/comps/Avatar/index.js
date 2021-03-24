@@ -50,7 +50,7 @@ const Avatar = ({ profile, name, onClick }) => {
       <Profile>
         <img src={profile} />
       </Profile>
-      <NameUser>{name}</NameUser>
+      {/* <NameUser>{name}</NameUser> */}
     </InfoContainer>
   );
 };

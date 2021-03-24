@@ -13,19 +13,17 @@ import {
 
 
 const Profile = () => {
-
-    const history = useHistory();
-    const [playlist, setPlaylist] = useState("");
+  
+    const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
     const [username, setUsername] = useState("")
     const [file, setFile] = useState();
     const [open, setOpen] = useState(true);
+    const [playlist, setPlaylist] = useState([]);
 
-    useEffect(()=>{
-        getUserData();
-    }, [])
-    
-    const getUserData = async () =>{
+    const history = useHistory();
+  
+     const getUserData = async () =>{
         const result = await axios.get(`/api/users/2`)
 
         const [picture] = result.data.pictures
@@ -57,6 +55,38 @@ const Profile = () => {
         padding-top:3rem;
         display:${({ open }) => open ? 'none' : 'flex'};
     `;
+
+    //displaying the profile
+
+
+    const CheckToken = async () => {
+        const resp = await axios.get("http://localhost:4200/api/profile");
+        console.log(resp.data.result[0]);
+        // setUser({
+        //     ...resp.data.result[0]
+        // })
+        
+        if(resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
+            setUser({
+                ...resp.data.result[0]
+            })
+        }
+    }
+    const GetPlaylists = async () => {
+        var resp = await axios.get("http://localhost:4200/api/playlists");
+        console.log(resp.data.playlists);
+
+        if(resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
+            setPlaylist([...resp.data.playlists]);
+        }
+
+    }
+
+    useEffect(() => {
+        CheckToken();
+        GetPlaylists();
+        getUserData();
+    },[]);
 
 
 
@@ -93,12 +123,33 @@ const Profile = () => {
                 </form>
                 </Box>
                 <div className="text"><h2>My playlists</h2></div>
-                <PlaylistCard/>
-                <PlaylistCard/>
-            </div>
+                 <div className="content">
+                    {playlist.map((o) => {
+                        return (
+                            <PlaylistCard
+                                plname={o.name}
+                                plimg={o.images}
+                                />
+                              );
+                          })}
+                    </div>
+                    <div className="text">
+                        <p>Liked Playlist</p>
+                    </div>
+                <div className="content">
+                    {playlist.map((o) => {
+                        return (
+                            <PlaylistCard
+                                plname={o.name}
+                                plimg={o.images}
 
+                            />
+                        );
+                    })}
+                </div>
+
+            </div>
             <NavBar/>
-         
         </div>
     )
 }

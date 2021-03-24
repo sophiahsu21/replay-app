@@ -18,11 +18,11 @@ const Register = () => {
     const [pass, setPass] = useState("");
 
     const HandleRegister = async () => {
-        const resp = await axios.post("(url)", { name:name, email:email, password:pass });
+        const resp = await axios.post("https://replay-music-app.herokuapp.com/api/users", { name:name, email:email, password:pass });
         console.log(resp);
 
         if(resp.data !== "Something went wrong registering user") {
-            history.push("/");
+            history.push("/LogIn");
         }
     }
 

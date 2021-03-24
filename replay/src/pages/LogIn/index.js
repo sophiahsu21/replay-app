@@ -6,10 +6,12 @@ import {MdMail} from "react-icons/md";
 import {MdLock} from "react-icons/md";
 
 import {
+    useParams,
     useHistory
 } from "react-router-dom";
 
 const LogIn = () => {
+    const params = useParams();
     const history = useHistory();
 
     const [email, setEmail] = useState("");
@@ -18,14 +20,17 @@ const LogIn = () => {
     const [error, setError] = useState(null);
 
     const HandleLogin = async () => {
-        const resp = await axios.post("(url)", { email:email, password:pass });
+        const resp = await axios.post("http://localhost:4200/api/users/login", { email:email, password:pass });
         console.log(resp);
 
-        if(resp.data !== "Something went wrong registering user") {
-            const token = resp.data;
-            sessionStorage.setItem("token", token);
+        if(resp.data !== "no token sent to server") {
+            const token = resp.data.token;
             axios.defaults.headers.common['Authorization'] = token;
-            history.push("/profile");
+            sessionStorage.setItem("token", token);
+
+            console.log("identifier/token", resp.data);
+            // history.push("/Home");
+            history.push("/Profile");
         } else {
             //update a state to show an error
             setError("Email or password is incorrect.");

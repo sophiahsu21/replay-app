@@ -1,20 +1,38 @@
 .profile-container {
 width:100vw;
-display:flex;
+
+max-height:100vh;
 justify-content: center;
-}
-.text{
-   font-weight: 600;
-   display:flex;
-   justify-content:center;
-   padding-top:2rem;
-}
-.profile-image{
-    padding:5rem;
-}
-.picture-form{
-    width:100px;
-    background-color:red;
-    padding-top:3rem;
+display:flex;
+overflow-y: scroll;
+
+    .navbar{
+        padding-top:290px;
+    }
+
+    .user {
+        padding-top: 24px;
+        font-size: 28px;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .text{
+        margin-bottom: 25px;
+        width: 297px;
+        display: flex;
+        justify-content: left;
+        font-weight: 600;
+
+        p {
+            font-weight: 700;
+        }
+    }
+    .content {
+        margin-bottom: 35px;
+    }
+
 }
  
