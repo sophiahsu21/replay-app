@@ -66,17 +66,21 @@ const Profile = () => {
             setUsername(user.name)
         }
     }
-    // const GetMyPlaylists = async () => {
-    //     var resp = await axios.get("http://localhost:4200/api/playlists");
-    //     console.log(resp.data.playlists);
-    //     console.log(resp);
+    const getMyPlaylists = async () => {
+        var resp = await axios.get("http://localhost:4200/api/user_playlists");
+        // console.log(resp.data.results);
+        // console.log(resp);
+        // const icecream = {resp:{data}}
+        // console.log(icecream)
+        // const [play] = resp.data.results
+        // console.log(play)
+    
+        if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
+            setPlaylist([...resp.data.results]);
+            console.log("token success");
+        }
 
-    //     if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
-    //         // setPlaylist([...resp.data.playlists]);
-    //         console.log("token success");
-    //     }
-
-    // }
+    }
 
     // const GetLikedPlaylists = async () => {
     //     // show liked playlists
@@ -91,7 +95,7 @@ const Profile = () => {
     }
     useEffect(() => {
         CheckToken();
-        // GetMyPlaylists();
+        getMyPlaylists();
         // GetLikedPlaylists();
         getUserData();
     }, []);
