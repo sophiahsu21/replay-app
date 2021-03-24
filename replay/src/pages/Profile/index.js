@@ -13,7 +13,7 @@ import {
 
 const Profile = () => {
 
-    const [user, setUser] = useState({});
+    // const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
     const [username, setUsername] = useState("")
     const [file, setFile] = useState();
@@ -23,14 +23,15 @@ const Profile = () => {
     const history = useHistory();
 
     const getUserData = async () => {
-        const result = await axios.get(`/api/users/2`)
+        const result = await axios.get('/api/users')
+        console.log(result);
 
         const [picture] = result.data.pictures
         console.log(picture)
 
         const noPicture = Object.values(picture).every(x => (x !== null));
         console.log(noPicture)
-        setUsername(picture.name)
+        // setUsername(picture.name)
         if (noPicture !== false) {
             setPosts(picture.image_url)
         } else {
@@ -57,26 +58,29 @@ const Profile = () => {
 
     const CheckToken = async () => {
         const resp = await axios.get("http://localhost:4200/api/profile");
-        console.log(resp.data.result[0]);
-        // setUser({
-        //     ...resp.data.result[0]
-        // })
+
+        const [user] = resp.data.result;
+        console.log(user);
 
         if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
-            setUser({
-                ...resp.data.result[0]
-            })
+            setUsername(user.name)
         }
     }
-    const GetPlaylists = async () => {
-        var resp = await axios.get("http://localhost:4200/api/playlists");
-        console.log(resp.data.playlists);
+    // const GetMyPlaylists = async () => {
+    //     var resp = await axios.get("http://localhost:4200/api/playlists");
+    //     console.log(resp.data.playlists);
+    //     console.log(resp);
 
-        if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
-            setPlaylist([...resp.data.playlists]);
-        }
+    //     if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
+    //         // setPlaylist([...resp.data.playlists]);
+    //         console.log("token success");
+    //     }
 
-    }
+    // }
+
+    // const GetLikedPlaylists = async () => {
+    //     // show liked playlists
+    // }
  
     const HandleCreatePlaylistName = () => {
         //create a playlist
@@ -87,7 +91,8 @@ const Profile = () => {
     }
     useEffect(() => {
         CheckToken();
-        GetPlaylists();
+        // GetMyPlaylists();
+        // GetLikedPlaylists();
         getUserData();
     }, []);
 
@@ -110,7 +115,7 @@ const Profile = () => {
                         <button type="submit" className="submit-button">Submit</button>
                     </form>
                 </Box>
-                <h3>Liked Playlists</h3>           
+                <h3>My Playlists</h3>           
                 <div className="content">
                     {playlist.map((o) => {
                         return (
@@ -121,7 +126,7 @@ const Profile = () => {
                         );
                     })}
                 </div> 
-                <h3>My Playlists</h3>           
+                <h3>Liked Playlists</h3>           
                 <div className="content">
                     {playlist.map((o) => {
                         return (
