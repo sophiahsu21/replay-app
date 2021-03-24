@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import {VscHeart} from 'react-icons/vsc';
 
 const Container = styled.div`
 display:flex;
 
 position: relative;
-top:10%;
+top:20%;
 left:45%;
 margin:10px;
 transform: translate(-50%, 0%);
@@ -91,11 +92,11 @@ font-weight:600;
 
 
 const PlaylistIcon = styled.img`
-display:block;
+display:flex;
 position:relative;
 width:10px;
 height:18px;
-padding-left:110px;
+padding-left:60px;
 padding-top:35px;
 `;
 
@@ -105,17 +106,20 @@ font-size:12px;
 font-weight:400;
 color: #F5F5F5 55%;
 `;
-const PostCardLike = styled.img`
+
+const PostCardLike = styled.div`
 position:relative;
 margin-top:40px;
-width:22px;
-height:22px;
+width:33px;
+height:33px;
 padding-top:120px;
 padding-right:20px;
-font-weight:400;
 color: #F5F5F5 55%;
+  cursor: pointer;
 `;
+
 const PostCard = ({plname,pllikes, profile,name}) => {
+
     return <Container>
                 <PostCardCont>
                     <User>
@@ -137,7 +141,12 @@ const PostCard = ({plname,pllikes, profile,name}) => {
         <PlaylistIcon src="arrow1.svg"></PlaylistIcon>
         </PlaylistCardCont>
 
-        <PostCardLike src="like.svg"/>
+        <PostCardLike>
+        <VscHeart 
+        size="1.40rem"
+        color="#ddd"
+        ></VscHeart>
+        </PostCardLike>
         </PostCardCont>
 
         </Container>
