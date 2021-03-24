@@ -23,7 +23,7 @@ const Profile = () => {
     const history = useHistory();
 
     const getUserData = async () => {
-        const result = await axios.get(`/api/users/2`)
+        const result = await axios.get(`/api/users`)
 
         const [picture] = result.data.pictures
         console.log(picture)
