@@ -1,38 +1,10 @@
 .profile-container {
-width:100vw;
-
-max-height:100vh;
-justify-content: center;
+width:100%;
+height:auto;
+// background-color:aqua;
 display:flex;
-overflow-y: scroll;
-
-    .navbar{
-        padding-top:290px;
-    }
-
-    .user {
-        padding-top: 24px;
-        font-size: 28px;
-        font-weight: 700;
-        display: flex;
-        justify-content: center;
-    }
-
-
-    .text{
-        margin-bottom: 25px;
-        width: 297px;
-        display: flex;
-        justify-content: left;
-        font-weight: 600;
-
-        p {
-            font-weight: 700;
-        }
-    }
-    .content {
-        margin-bottom: 35px;
-    }
-
+flex-direction: column;
+align-items: center;
+padding-top:3rem;
 }
  
