@@ -11,7 +11,7 @@ display:flex;
 `;
 const PlaylistCardCont = styled.div`
 display:flex;
-margin-top:20px;
+margin-bottom:20px;
 height: 88px;
 width: 297px;
 background: #1E1C21;
@@ -20,7 +20,7 @@ align-items: center;
 
 `;
 
-const PlaylistImage = styled.div`
+const PlaylistImage = styled.img`
 margin: 12px 12px 12px ;
 min-height: 64px;
 min-width: 64px;
@@ -47,24 +47,18 @@ const PlaylistIcon = styled.div`
 position: relative;
 right: 20px;
 
-:hover {
-    cursor: pointer;
-}
+    :hover {
+        cursor: pointer;
+    }
 `;
-// const PlaylistLikes = styled.div`
-// padding-top:15px;
-// font-size:12px;
-// font-weight:400;
-// color: #F5F5F5 55%;
 
-// `;
-const PlaylistCard = ({plname, plimg, onClick}) => {
+const PlaylistCard = ({plname, plimg, viewPlaylist}) => {
     return <Container>
              <PlaylistCardCont>
-                <PlaylistImage>{plimg}</PlaylistImage>
+                <PlaylistImage src={plimg} />
                 <Content>
                     <PlaylistName>{plname}</PlaylistName>
-                    <PlaylistIcon onClick={onClick}><IoIosArrowForward size="24px" color="#F06449"/></PlaylistIcon>
+                    <PlaylistIcon onClick={viewPlaylist}><IoIosArrowForward size="24px" color="#F06449"/></PlaylistIcon>
                 </Content>
              </PlaylistCardCont>
 
@@ -75,7 +69,7 @@ const PlaylistCard = ({plname, plimg, onClick}) => {
 PlaylistCard.defaultProps = {
 plname:null,
 plimg:null,
-onClick:()=>{}
+viewPlaylist:()=>{}
 }
 
 export default PlaylistCard;

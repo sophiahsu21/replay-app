@@ -1,11 +1,14 @@
 .profile-container {
 width:100vw;
-height:100vh;
+max-height:100vh;
 justify-content: center;
 display:flex;
+overflow-y: scroll;
+
     .navbar{
         padding-top:290px;
     }
+
     .user {
         padding-top: 24px;
         font-size: 28px;
@@ -13,16 +16,21 @@ display:flex;
         display: flex;
         justify-content: center;
     }
+
+
     .text{
+        margin-bottom: 25px;
         width: 297px;
         display: flex;
         justify-content: left;
-        padding: 16px 0 0px 0;
         font-weight: 600;
 
         p {
             font-weight: 700;
         }
+    }
+    .content {
+        margin-bottom: 35px;
     }
 }
 

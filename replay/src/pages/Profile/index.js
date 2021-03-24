@@ -35,11 +35,11 @@ const Profile = () => {
     }
     const GetPlaylists = async () => {
         var resp = await axios.get("http://localhost:4200/api/playlists");
-        console.log(resp.data.playlists[0]);
+        console.log(resp.data.playlists);
 
-        // if(resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
-        //     setPlaylist([...resp.data.playlists]);
-        // }
+        if(resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
+            setPlaylist([...resp.data.playlists]);
+        }
 
     }
 
@@ -53,18 +53,34 @@ const Profile = () => {
             <div className="profile-image">
                 <Avatar />
                 <div className="user">{user.name}</div>
-                <div className="text">
-                    <p>My playlist</p>
-                </div>
-                {playlist.map((o) => {
-                    return (
-                        <PlaylistCard
-                            plname={o.name}
-                            plimg={o.images}
+                    <div className="text">
+                        <p>My Playlist</p>
+                    </div>
+                <div className="content">
+                    {playlist.map((o) => {
+                        return (
+                            <PlaylistCard
+                                plname={o.name}
+                                plimg={o.images}
 
-                        />
-                    );
-                })}
+                            />
+                        );
+                    })}
+                </div>
+                    <div className="text">
+                        <p>Liked Playlist</p>
+                    </div>
+                <div className="content">
+                    {playlist.map((o) => {
+                        return (
+                            <PlaylistCard
+                                plname={o.name}
+                                plimg={o.images}
+
+                            />
+                        );
+                    })}
+                </div>
             </div>
             <NavBar/>
         </div>
