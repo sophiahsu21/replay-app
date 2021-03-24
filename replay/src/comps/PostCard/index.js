@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {VscHeart} from 'react-icons/vsc';
+import { VscHeart } from 'react-icons/vsc';
+import { FaHeart } from 'react-icons/fa';
 
 const Container = styled.div`
 display:flex;
-
 position: relative;
 top:20%;
-left:45%;
+left:46.5%;
 margin:10px;
 transform: translate(-50%, 0%);
 `;
@@ -108,6 +108,7 @@ color: #F5F5F5 55%;
 `;
 
 const PostCardLike = styled.div`
+display: ${props => props.showIcon ? "flex" : "none"};
 position:relative;
 margin-top:40px;
 width:33px;
@@ -118,44 +119,53 @@ color: #F5F5F5 55%;
   cursor: pointer;
 `;
 
-const PostCard = ({plname,pllikes, profile,name}) => {
+const PostCard = ({ plname, pllikes, profile, name }) => {
+  const [icon, setIcon] = useState(true);
+  const handleClick = () => {
+    setIcon(!icon);
+  }
+  return <Container>
+    <PostCardCont>
+      <User>
+        <Profile profile={profile}>
+          {" "}
+        </Profile>
+        <NameUser>{name}</NameUser>
+      </User>
 
-    return <Container>
-                <PostCardCont>
-                    <User>
-                    <Profile profile={profile}>
-                     {" "}
-                     </Profile>
-                     <NameUser>{name}</NameUser>
-                    </User>
-              
-                <PlaylistCardCont>
+      <PlaylistCardCont>
         <PlaylistImage src="moody.png" >
-    {/* need to use image that user upload */}
+          {/* need to use image that user upload */}
         </PlaylistImage>
         <PlaylistName>
-        {plname}
-        <br></br>
-        <PlaylistLikes>{pllikes}</PlaylistLikes>
+          {plname}
+          <br></br>
+          <PlaylistLikes>{pllikes}</PlaylistLikes>
         </PlaylistName>
         <PlaylistIcon src="arrow1.svg"></PlaylistIcon>
-        </PlaylistCardCont>
+      </PlaylistCardCont>
 
-        <PostCardLike>
-        <VscHeart 
-        size="1.40rem"
-        color="#ddd"
-        ></VscHeart>
-        </PostCardLike>
-        </PostCardCont>
+      <PostCardLike showIcon={!icon} onClick={() => { handleClick() }}>
+        <VscHeart
+          size="1.40rem"
+          color="#ddd"
+        />
+      </PostCardLike>
+      <PostCardLike showIcon={icon} onClick={() => { handleClick() }}>
+        <FaHeart
+          size="1.40rem"
+          color="#F06449"
+        />
+      </PostCardLike>
+    </PostCardCont>
 
-        </Container>
+  </Container>
 }
 
 PostCard.defaultProps = {
-    plname: "Moody",
-    pllikes: "9 likes",
-    name: "Simon"
+  plname: "Moody",
+  pllikes: "9 likes",
+  name: "Simon"
 }
 
 export default PostCard;
