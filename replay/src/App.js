@@ -55,7 +55,7 @@ function App() {
           <Route exact path="/AddSongs">
             <AddSongs />
           </Route>
-          <Route exact path="/home">
+          <Route exact path="/Home">
             <Home />
           </Route>
           <Route exact path="/Profile">
