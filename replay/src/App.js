@@ -7,7 +7,8 @@ import Register from 'pages/Register';
 import NewPlaylist from 'pages/NewPlaylist';
 import PlaylistAdd from 'pages/PlaylistAdd';
 import AddSongs from 'pages/AddSongs';
-import Home from 'pages/home';
+import Home from 'pages/Home';
+import SearchPlaylist from 'pages/SearchPlaylist';
 import Profile from 'pages/Profile';
 import ViewPlaylist from 'pages/ViewPlaylist';
 import Modal from 'comps/Modal';
@@ -33,6 +34,7 @@ function App() {
           <Link to="/PlaylistAdd">Playlist Add</Link>
           <Link to="/AddSongs">Add Songs</Link>
           <Link to="/Home">Home</Link>
+          <Link to="/SearchPlaylist">Search Playlist</Link>
           <Link to="/Profile">Profile</Link>
           <Link to="/ViewPlaylist">View Playlist</Link>
         </div>
@@ -57,6 +59,9 @@ function App() {
           </Route>
           <Route exact path="/Home">
             <Home />
+          </Route>
+          <Route exact path="/SearchPlaylist">
+            <SearchPlaylist />
           </Route>
           <Route exact path="/Profile">
             <Profile />

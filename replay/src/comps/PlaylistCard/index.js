@@ -5,10 +5,11 @@ import styled from 'styled-components';
 import {IoIosArrowForward} from 'react-icons/io';
 
 const Container = styled.div`
-display:flex;
+  display:flex;
   justify-content:center;
   align-items:center;
 `;
+
 const PlaylistCardCont = styled.div`
 display:flex;
 margin-bottom:20px;

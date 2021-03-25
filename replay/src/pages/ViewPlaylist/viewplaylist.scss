@@ -11,4 +11,14 @@
         margin-top: 15px;
         margin-bottom: 25px;
     }
+
+    .songs {
+
+    max-height: 350px;
+    overflow-y: scroll;
+    }
+
+    .songs::-webkit-scrollbar {
+        display: none;
+    }
 }

@@ -31,19 +31,19 @@ const Register = () => {
             <img src="replay_logo.png" className="logoimg" width="62px" alt="logo" />
             <h1>Create an Account</h1>
             <div className="input-icon">
-                <MdPerson style={{marginLeft: "1rem", position: "absolute", top: "28%"}} color="#F5F5F5" opacity="0.35" size="1.35rem" />
+                <MdPerson style={{marginLeft: "1rem", position: "absolute", top: "28%"}} color="#F5F5F5" size="1.35rem" />
                 <input className="input-form" type='text' placeholder='Name' onChange={(e) =>
                     setName(e.target.value)
                 } />
             </div>
             <div className="input-icon">
-                <MdMail style={{marginLeft: "1rem", position: "absolute", top: "28%"}} color="#F5F5F5" opacity="0.35" size="1.35rem" />
+                <MdMail style={{marginLeft: "1rem", position: "absolute", top: "28%"}} color="#F5F5F5" size="1.35rem" />
                 <input className="input-form" type='text' placeholder='Email' onChange={(e) =>
                     setEmail(e.target.value)
                 } />
             </div>
             <div className="input-icon">
-                <MdLock style={{marginLeft: "1rem", position: "absolute", top: "28%"}} color="#F5F5F5" opacity="0.35" size="1.35rem" />
+                <MdLock style={{marginLeft: "1rem", position: "absolute", top: "28%"}} color="#F5F5F5" size="1.35rem" />
                 <input className="input-form" type='password' placeholder='Password' onChange={(e) =>
                     setPass(e.target.value)
                 } />
