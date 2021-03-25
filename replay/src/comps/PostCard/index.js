@@ -4,6 +4,12 @@ import styled from 'styled-components';
 import { VscHeart } from 'react-icons/vsc';
 import { FaHeart } from 'react-icons/fa';
 
+
+import {
+  useHistory
+} from 'react-router-dom';
+
+
 const Container = styled.div`
 display:flex;
 position: relative;
@@ -63,6 +69,7 @@ const NameUser = styled.h6`
 `;
 
 const PlaylistCardCont = styled.div`
+  cursor: pointer;
 display:flex;
 position:absolute;
 margin-top:58px;
@@ -124,6 +131,11 @@ const PostCard = ({ plname, pllikes, profile, name }) => {
   const handleClick = () => {
     setIcon(!icon);
   }
+
+  const history = useHistory();
+
+
+
   return <Container>
     <PostCardCont>
       <User>
@@ -133,7 +145,7 @@ const PostCard = ({ plname, pllikes, profile, name }) => {
         <NameUser>{name}</NameUser>
       </User>
 
-      <PlaylistCardCont>
+      <PlaylistCardCont onClick={() => history.push("/ViewPlaylist")}  >
         <PlaylistImage src="moody.png" >
           {/* need to use image that user upload */}
         </PlaylistImage>

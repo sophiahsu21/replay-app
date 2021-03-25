@@ -8,10 +8,11 @@ const InfoContainer = styled.div`
   position: relative;
   justify-content:center;
   align-items:center;
+  margin-bottom:50px;
 `;
 
 const Profile = styled.div`
-position:relative  ;
+/* position:relative  ; */
   min-width: 145px;
   min-height: 145px;
   border-radius: 17px;
@@ -22,13 +23,15 @@ position:relative  ;
   background-size: 159px 159px;
   background-position:center center;
   background-repeat: no-repeat;
-margin-top:85px;
+margin-top:20px;
 `;
 
 const NameUser = styled.h3`
   
   position: absolute;
-  margin-top:300px;
+  margin-left:25%;
+  margin-top:160px;
+
   justify-content:center;
   align-items:center;
 `;
@@ -39,8 +42,10 @@ const PlaylistCover = ({ profile, name }) => {
     <InfoContainer>
       <Profile profile={profile}>
         {" "}
+
+        <NameUser>{name}</NameUser>
       </Profile>
-      <NameUser>{name}</NameUser>
+      
     </InfoContainer>
   );
 };

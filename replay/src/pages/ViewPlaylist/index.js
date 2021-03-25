@@ -5,7 +5,7 @@ import axios from "axios";
 import NavBar from "../../comps/NavBar";
 import PlaylistCover from "../../comps/PlaylistCover";
 import SongCard from "../../comps/SongCard";
- 
+
 import {
     useHistory
 } from "react-router-dom";
@@ -25,16 +25,12 @@ const ViewPlaylist = () => {
         <div className="profile-container">
 
             <div className="profile-image">
-<PlaylistCover/>
-
-<div className="text"><h2>Songs</h2></div>
-<SongCard/>
-<SongCard/>
-<SongCard/>
+                <PlaylistCover />
             </div>
+            <div className="text"><h2>Songs</h2></div>
+            <SongCard />
+            <NavBar />
 
-            <NavBar/>
-         
         </div>
     )
 }
