@@ -1,7 +1,6 @@
 .as-container {
     margin: 0 auto;
     width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     //gap: 100px;
@@ -16,6 +15,12 @@
     padding: 15px 0px;
     min-width: 321px;
     max-width: 321px;
+    max-height: 500px;
     position: absolute;
     top: 107px;
+    overflow-y: scroll;
 }
+
+.as-songCont::-webkit-scrollbar {
+    display: none;
+  }
