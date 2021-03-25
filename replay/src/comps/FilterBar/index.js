@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import {HiSearch} from 'react-icons/hi';
 import {CgClose} from 'react-icons/cg';
 
-import {
-    useHistory
-} from 'react-router-dom';
 
 const Container = styled.div`
     display: flex;
@@ -35,9 +32,7 @@ const SearchField = styled.input`
     opacity: 1;
 `;
 
-const FilterBar = ({ placeholder, onClick }) => {
-
-    const history = useHistory();
+const FilterBar = ({ placeholder, onChange, onClick }) => {
 
     return <Container>
         <Icon>
@@ -48,7 +43,12 @@ const FilterBar = ({ placeholder, onClick }) => {
                 size="1.25rem"
                 cursor="pointer"
             />
-            <SearchField type='text' placeholder={placeholder} />
+            <SearchField
+                type='text'
+                placeholder={placeholder} 
+                onChange={onChange}
+                onkeyup="this.value = this.value.toLowerCase();"
+            />
         </Icon>
         <CgClose
             style={{marginLeft: "15px", position: "relative", top: "14px"}}
@@ -63,6 +63,7 @@ const FilterBar = ({ placeholder, onClick }) => {
 
 FilterBar.defaultProps = {
     placeholder:'Search for Songs',
+    onChange:()=>{},
     onClick:()=>{}
 }
 
