@@ -28,6 +28,7 @@ const SongDetail = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 12px;
 `;
 
 const Song = styled.p`

@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import NavBar from "../../comps/NavBar";
 import Avatar from "../../comps/Avatar";
 import PlaylistCard from "../../comps/PlaylistCard";
-// import SongCard from "../../comps/SongCard";
+
 import {
     useHistory
 } from "react-router-dom";
@@ -13,12 +13,12 @@ import {
 
 const Profile = () => {
 
-    // const [user, setUser] = useState({});
     const [posts, setPosts] = useState([]);
     const [username, setUsername] = useState("")
     const [file, setFile] = useState();
     const [open, setOpen] = useState(true);
     const [playlist, setPlaylist] = useState([]);
+    const [liked, setLiked] = useState([]);
 
     const history = useHistory();
 
@@ -69,23 +69,22 @@ const Profile = () => {
     const getMyPlaylists = async () => {
         var resp2 = await axios.get("http://localhost:4200/api/user_playlists");
     
-        if (resp2.data !== "no token sent to server" && resp2.data !== "Invalid Token") {
-            setPlaylist([...resp2.data.results]);
-            console.log(resp2.data.results, "token success");
-        }
+        setPlaylist([...resp2.data.results]);
+        console.log(resp2.data.results)
+        // if (resp2.data !== "no token sent to server" && resp2.data !== "Invalid Token") {
+        //     setPlaylist([...resp2.data.results]);
+        //     console.log(resp2.data.results, "token success");
+        // }
 
     }
 
     const GetLikedPlaylists = async () => {
         // show liked playlists
-        // var resp3 = await axios.get("http://localhost:4200/api/liked")
+        var resp3 = await axios.get("http://localhost:4200/api/likes")
 
-        // console
+        setLiked([...resp3.data.result]);
     }
- 
-    const HandleCreatePlaylistName = () => {
-        //create a playlist
-    }
+
     const handleOpen = () => {
         setOpen(!open);
         console.log("hai")
@@ -93,7 +92,7 @@ const Profile = () => {
     useEffect(() => {
         CheckToken();
         getMyPlaylists();
-        // GetLikedPlaylists();
+        GetLikedPlaylists();
         getUserData();
     }, []);
 
@@ -121,7 +120,7 @@ const Profile = () => {
                     {playlist.map((o) => {
                         return (
                             <PlaylistCard
-                                viewPlaylist={() => history.push("/ViewPlaylist"+o.id)}
+                                viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
                                 plname={o.name}
                                 plimg={o.images}
                             />
@@ -130,7 +129,7 @@ const Profile = () => {
                 </div> 
                 <h3>Liked Playlists</h3>           
                 <div className="content">
-                    {playlist.map((o) => {
+                    {liked.map((o) => {
                         return (
                             <PlaylistCard
                                 plname={o.name}
