@@ -5,14 +5,14 @@ import axios from "axios";
 import NavBar from "../../comps/NavBar";
 import PlaylistCover from "../../comps/PlaylistCover";
 import SongCard from "../../comps/SongCard";
- 
+
 import {
     useHistory
     // useParams
 } from "react-router-dom";
 
 const songs = require("./songs.json");
-
+    
 const ViewPlaylist = () => {
 
     const history = useHistory();
