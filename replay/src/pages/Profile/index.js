@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import NavBar from "../../comps/NavBar";
 import Avatar from "../../comps/Avatar";
 import PlaylistCard from "../../comps/PlaylistCard";
-import SongCard from "../../comps/SongCard";
+// import SongCard from "../../comps/SongCard";
 import {
     useHistory
 } from "react-router-dom";
@@ -55,7 +55,6 @@ const Profile = () => {
 
     //displaying the profile
 
-
     const CheckToken = async () => {
         const resp = await axios.get("http://localhost:4200/api/profile");
 
@@ -66,25 +65,23 @@ const Profile = () => {
             setUsername(user.name)
         }
     }
+
     const getMyPlaylists = async () => {
-        var resp = await axios.get("http://localhost:4200/api/user_playlists");
-        // console.log(resp.data.results);
-        // console.log(resp);
-        // const icecream = {resp:{data}}
-        // console.log(icecream)
-        // const [play] = resp.data.results
-        // console.log(play)
+        var resp2 = await axios.get("http://localhost:4200/api/user_playlists");
     
-        if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
-            setPlaylist([...resp.data.results]);
-            console.log("token success");
+        if (resp2.data !== "no token sent to server" && resp2.data !== "Invalid Token") {
+            setPlaylist([...resp2.data.results]);
+            console.log(resp2.data.results, "token success");
         }
 
     }
 
-    // const GetLikedPlaylists = async () => {
-    //     // show liked playlists
-    // }
+    const GetLikedPlaylists = async () => {
+        // show liked playlists
+        // var resp3 = await axios.get("http://localhost:4200/api/liked")
+
+        // console
+    }
  
     const HandleCreatePlaylistName = () => {
         //create a playlist
@@ -124,6 +121,7 @@ const Profile = () => {
                     {playlist.map((o) => {
                         return (
                             <PlaylistCard
+                                viewPlaylist={() => history.push("/ViewPlaylist"+o.id)}
                                 plname={o.name}
                                 plimg={o.images}
                             />
