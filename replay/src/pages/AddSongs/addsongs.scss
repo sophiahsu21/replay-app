@@ -1,9 +1,9 @@
 .as-container {
     margin: 0 auto;
     width: 100vw;
+    height: auto;
     display: flex;
     flex-direction: column;
-    //gap: 100px;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -23,4 +23,4 @@
 
 .as-songCont::-webkit-scrollbar {
     display: none;
-  }
+}
