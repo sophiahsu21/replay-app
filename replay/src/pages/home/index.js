@@ -8,37 +8,20 @@ import PostCard from "../../comps/PostCard";
 import {HiSearch} from 'react-icons/hi';
 
 import {
-    useHistory,
-    useParams
+    useHistory
 } from "react-router-dom";
 
 
 const Home =  () => {
     const history = useHistory();
-    const params = useParams();
 
     const [playlist, setPlaylist] = useState([]);
-    const [user, setUser] = useState();
    
     const GetPlaylists = async () => {
         var resp = await axios.get("http://localhost:4200/api/playlists");
 
         console.log(resp);
         setPlaylist(resp.data.playlists);
-    }
-
-    // map to get user
-    const GetUser = async () => {
-        var resp2 = await axios.get("http://localhost:4200/api/users");
-
-        // const {data:{result:[{id}]}} = resp2;
-        // console.log(id, "hi")
-        // setUser(id)
-
-        // console.log(resp2.data, "hello")
-        // setUser({
-        //     ...resp2.data.result[0]
-        // })
     }
 
     const LikePlaylist = async (id) => {
@@ -64,8 +47,6 @@ const Home =  () => {
     useEffect(() => {
         CheckToken();
         GetPlaylists();
-        GetUser();
-        //LikePlaylist();
     },[]);
 
     return <div className="home-container">
