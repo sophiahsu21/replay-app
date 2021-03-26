@@ -24,8 +24,9 @@ const User = styled.div`
 `;
 
 const Profile = styled.img`
-  min-width: 20px;
-  min-height: 20px;
+  width: 32px;
+  height: 32px;
+  margin-bottom:3px;
   border-radius: 50%;
   background: linear-gradient(180deg, rgba(240, 100, 73, 0.54) 0%, rgba(255, 255, 255, 0) 100%), rgba(194, 181, 181, 0.34);
   z-index: 0;
@@ -44,6 +45,7 @@ const Profile = styled.img`
 
 const NameUser = styled.h6`
   margin-left:15px;
+  font-weight:550;
 `;
 
 const PlaylistContainer = styled.div`
