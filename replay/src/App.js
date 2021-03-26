@@ -54,7 +54,13 @@ function App() {
           <Route exact path="/PlaylistAdd">
             <PlaylistAdd />
           </Route>
+          <Route path="/PlaylistAdd/:id">
+            <PlaylistAdd />
+          </Route>
           <Route exact path="/AddSongs">
+            <AddSongs />
+          </Route>
+          <Route path="/AddSongs/:id">
             <AddSongs />
           </Route>
           <Route exact path="/Home">

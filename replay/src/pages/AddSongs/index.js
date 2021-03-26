@@ -19,27 +19,26 @@ const AddSongs = () => {
     const [allsongs, setAllSongs] = useState(music);
     const [songId, setSongId] = useState()
 
-
     const getSongs = async () => {
         //endpoint from song api?
-        var resp = await axios.get("./songs.json");
-        var music = resp.data.slice(0,3);
+        var resp = await axios.get("http://localhost:4200/api/all_songs");
+        // console.log(resp.data.result)
+        var music = resp.data.result.slice(0, 3)
         setSongs(music)
-        setAllSongs(resp.data); //assuming this will be resp.data
+        setAllSongs(resp.data.result); //assuming this will be resp.data
 
     }
 
-    const handleAdd = () =>{
-        console.log("hi")
-        // var resp = axios.post('http://localhost:4200/api/add_songs')
-       
+    const handleAdd = (id) =>{
+        var resp = axios.post('http://localhost:4200/api/add_songs', {song_id:id, playlist_id:params.id})
+        console.log(id)   
     }
 
-    const FilterSongs = (text) => {
-        
+
+    const FilterSongs = (text) => {     
         setSongs(
             allsongs.filter((o) => {
-                return o.title.includes(text);
+                return o.title.includes(text) || o.artist.includes(text);
             })
         )
     }
@@ -57,13 +56,14 @@ const AddSongs = () => {
             onClick={() => history.push("/PlaylistAdd")}  
         />
         <div className="as-songCont">
-            <AddSong />
+            {/* <AddSong /> */}
             {songs.map((o) => {
                 return (
                     <AddSong
                         song={o.title}
-                        artist={o.artist.name}
-                        add={handleAdd}
+                        artist={o.artist}
+                        onClick={handleAdd}
+                        id={o.id}
                         // not too sure cuz there are objects inside objects
                     />
                 )
