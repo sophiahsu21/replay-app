@@ -30,6 +30,7 @@ const Container = styled.div`
   align-items: center;
   background-color: #1E1C21;
   border-radius: 15px 15px 0px 0px;
+  border: 5px solid #000000;
 `;
 
 const OptionContainer = styled.div`
