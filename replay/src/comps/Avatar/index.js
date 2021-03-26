@@ -25,8 +25,8 @@ const Profile = styled.div`
   & > img {
     width:auto;
     height:100%;
-    }
-  `;
+  }
+`;
 
 
 const Avatar = ({ profile, name, onClick }) => {
