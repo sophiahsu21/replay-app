@@ -19,9 +19,9 @@ const Home =  () => {
 
     const [playlist, setPlaylist] = useState([]);
     const [user, setUser] = useState();
-
+   
     const GetPlaylists = async () => {
-        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlists");
+        var resp = await axios.get("http://localhost:4200/api/playlists");
 
         console.log(resp);
         setPlaylist(resp.data.playlists);
@@ -31,14 +31,23 @@ const Home =  () => {
     const GetUser = async () => {
         var resp2 = await axios.get("http://localhost:4200/api/users");
 
-        const {data:{result:[{id}]}} = resp2;
-        console.log(id, "hi")
-        setUser(id)
+        // const {data:{result:[{id}]}} = resp2;
+        // console.log(id, "hi")
+        // setUser(id)
 
         // console.log(resp2.data, "hello")
         // setUser({
         //     ...resp2.data.result[0]
         // })
+    }
+
+    const LikePlaylist = async (id) => {
+        var resp3 = await axios.post("http://localhost:4200/api/liked", { playlist_id:id });
+
+        console.log(resp3, "test")
+
+
+
     }
 
     const CheckToken = async () => {
@@ -56,6 +65,7 @@ const Home =  () => {
         CheckToken();
         GetPlaylists();
         GetUser();
+        //LikePlaylist();
     },[]);
 
     return <div className="home-container">
@@ -77,8 +87,14 @@ const Home =  () => {
                             viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
                             plname={o.name}
                             plimg={o.image_url}
-                            // profile={user.image_url}
-                            // name={user.name}
+
+                            //for liking 
+                            onClick={LikePlaylist}
+                            id={o.id}
+
+                            // getting user creds
+                            profile={o.usersimg}
+                            name={o.username}
                         />
                     );
                 })}
