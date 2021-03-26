@@ -23,7 +23,7 @@ const LogIn = () => {
         const resp = await axios.post("http://localhost:4200/api/users/login", { email:email, password:pass });
         console.log(resp);
 
-        if(resp.data !== "no token sent to server") {
+        if(resp.data !== "no token sent to server" && error) {
             const token = resp.data.token;
             axios.defaults.headers.common['Authorization'] = token;
             sessionStorage.setItem("token", token);
