@@ -10,9 +10,15 @@
 
     .search {
         margin-top: 40px;
+        margin-left:260px;
         width: 321px;
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // background-color: blue;
+        position: relative;
+        // top: 200px;
     }
 
     h2 {
