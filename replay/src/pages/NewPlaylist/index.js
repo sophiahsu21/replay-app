@@ -12,14 +12,31 @@ const NewPlaylist = () => {
     const history = useHistory();
 
     const [playlist, setPlaylist] = useState("");
+    const [user, setUser] = useState();
+
+
+    const CheckToken = async () => {
+        const resp = await axios.get("http://localhost:4200/api/profile");
+
+        const {data:{result:[{id}]}} = resp
+        setUser(id)
+       
+        if (resp.data !== "no token sent to server" && resp.data !== "Invalid Token") {
+           console.log("logged in baby")
+        }
+    }
 
     const HandleCreatePlaylistName = async () => {
-        //create a playlist
-        // const resp = await axios.post("https://replay-music-app.herokuapp.com/api/playlists", { playlistId:playlist });
-        // console.log(resp.data);
-        // if statement maybe
-        history.push("/PlaylistAdd")
+
+        const resp = await axios.post("http://localhost:4200/api/playlists", {name:playlist});
+        console.log(resp.data);
+ 
+        history.push("/PlaylistAdd");
     }
+
+    useEffect(() => {
+        CheckToken();
+    }, []);
 
     return (
         <div className="np-container">

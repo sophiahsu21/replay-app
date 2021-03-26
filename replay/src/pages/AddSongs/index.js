@@ -5,16 +5,20 @@ import FilterBar from 'comps/FilterBar';
 import AddSong from 'comps/AddSong';
 
 import {
-    useHistory
+    useHistory,
+    useParams
 } from 'react-router-dom';
 
 const music = require("./songs.json")
 
 const AddSongs = () => {
     const history = useHistory();
+    const params = useParams();
 
     const [songs, setSongs] = useState([]);
     const [allsongs, setAllSongs] = useState(music);
+    const [songId, setSongId] = useState()
+
 
     const getSongs = async () => {
         //endpoint from song api?
@@ -22,6 +26,13 @@ const AddSongs = () => {
         var music = resp.data.slice(0,3);
         setSongs(music)
         setAllSongs(resp.data); //assuming this will be resp.data
+
+    }
+
+    const handleAdd = () =>{
+        console.log("hi")
+        // var resp = axios.post('http://localhost:4200/api/add_songs')
+       
     }
 
     const FilterSongs = (text) => {
@@ -46,11 +57,13 @@ const AddSongs = () => {
             onClick={() => history.push("/PlaylistAdd")}  
         />
         <div className="as-songCont">
+            <AddSong />
             {songs.map((o) => {
                 return (
                     <AddSong
                         song={o.title}
                         artist={o.artist.name}
+                        add={handleAdd}
                         // not too sure cuz there are objects inside objects
                     />
                 )

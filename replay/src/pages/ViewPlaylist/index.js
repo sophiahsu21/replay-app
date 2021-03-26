@@ -27,7 +27,7 @@ const ViewPlaylist = () => {
     const GetPlaylistInfo = async () => {
         var resp = await axios.get("http://localhost:4200/api/playlist_info/"+params.id)
 
-        console.log(resp.data)
+        // console.log(resp.data)
         setInfo({
             ...resp.data.result[0]
         })
@@ -36,7 +36,7 @@ const ViewPlaylist = () => {
     const ViewProfile = async () => {
         var resp2 = await axios.get("http://localhost:4200/api/playlist_creator/"+params.playlist_id)
 
-        console.log(resp2.data)
+        console.log(resp2.data, "hi")
         history.push("/Profile")
     }
 
