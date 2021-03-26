@@ -7,8 +7,7 @@ import Avatar from "../../comps/Avatar";
 import PlaylistCard from "../../comps/PlaylistCard";
 
 import {
-    useHistory,
-    useParams
+    useHistory
 } from "react-router-dom";
 
 

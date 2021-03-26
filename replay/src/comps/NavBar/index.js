@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// import {CgHome} from 'react-icons/Home';
+
+import {CgHome} from 'react-icons/cg';
 // import {MdExplore} from 'react-icons/Explore';
-// import {FiPlus} from 'react-icons/Plus';
-// import {FiUser} from 'react-icons/User';
+import {FiPlus} from 'react-icons/fi';
+import {FiUser} from 'react-icons/fi';
 
 import {
     useHistory
@@ -73,49 +74,49 @@ const HomeCont = styled(IconContainer)`
   }
 `;
 
-const ExploreCont = styled(IconContainer)`
+// const ExploreCont = styled(IconContainer)`
+//   &:after {
+//     opacity: ${(props) => (props.active == 2 ? "1" : "0")};
+//   }
+// `;
+
+const PlusCont = styled(IconContainer)`
   &:after {
     opacity: ${(props) => (props.active == 2 ? "1" : "0")};
   }
 `;
 
-const PlusCont = styled(IconContainer)`
+const ProfileCont = styled(IconContainer)`
   &:after {
     opacity: ${(props) => (props.active == 3 ? "1" : "0")};
   }
 `;
 
-const ProfileCont = styled(IconContainer)`
-  &:after {
-    opacity: ${(props) => (props.active == 4 ? "1" : "0")};
-  }
-`;
-
-const HomeIcon = styled.img`
+const HomeIcon = styled.div`
   filter: ${(props) =>
     props.active == 1
       ? "invert(.3) sepia(1) saturate(2) hue-rotate(10deg) drop-shadow(0 5px 0px #8B3B3A)"
       : ""};
 `;
 
-const ExploreIcon = styled.img`
+// const ExploreIcon = styled.img`
+//   filter: ${(props) =>
+//     props.active == 3
+//       ? "invert(.3) sepia(1) saturate(2) hue-rotate(10deg) drop-shadow(0 5px 0px #8B3B3A)"
+//       : ""};
+// `;
+
+const PlusIcon = styled.div`
+  filter: ${(props) =>
+    props.active == 2
+      ? "invert(.3) sepia(1) saturate(2) hue-rotate(10deg) drop-shadow(0 5px 0px #8B3B3A)"
+      : ""};
+`;
+
+
+const ProfileIcon = styled.div`
   filter: ${(props) =>
     props.active == 3
-      ? "invert(.3) sepia(1) saturate(2) hue-rotate(10deg) drop-shadow(0 5px 0px #8B3B3A)"
-      : ""};
-`;
-
-const PlusIcon = styled.img`
-  filter: ${(props) =>
-    props.active == 2
-      ? "invert(.3) sepia(1) saturate(2) hue-rotate(10deg) drop-shadow(0 5px 0px #8B3B3A)"
-      : ""};
-`;
-
-
-const ProfileIcon = styled.img`
-  filter: ${(props) =>
-    props.active == 2
       ? "invert(.3) sepia(1) saturate(2) hue-rotate(10deg) drop-shadow(0 5px 0px #8B3B3A)"
       : ""};
 `;
@@ -146,41 +147,58 @@ const NavBar = ({ propActive }) => {
         <OptionContainer>
 
 
-            <HomeCont onClick={() => history.push("/Home")}  active={active}>
+            {/* <HomeCont onClick={() => history.push("/Home")}  active={active}>
               <HomeIcon
                 src="home.svg"
                 active={active}
               ></HomeIcon>
-              <Text>Home</Text>
+
+            </HomeCont> */}
+
+
+            <HomeCont onClick={() => history.push("/Home")}  active={active}>
+              <HomeIcon>
+              <CgHome size="24px" color="#F06449"/>
+              </HomeIcon>
             </HomeCont>
 
-
-            <ExploreCont onClick={() => history.push("/AddSongs")}  active={active}>
+            {/* <ExploreCont onClick={() => history.push("/AddSongs")}  active={active}>
               <ExploreIcon
                 src="Explore.svg"
                 active={active}
               ></ExploreIcon>
-              <Text>Explore</Text>
-            </ExploreCont>
 
+            </ExploreCont> */}
 
-            <PlusCont  onClick={() => history.push("/NewPlaylist")} active={active}>
+            {/* <PlusCont  onClick={() => history.push("/NewPlaylist")} active={active}>
               <PlusIcon
                 src="plus.svg"
                 active={active}
               ></PlusIcon>
-              <Text>Plus</Text>
+            </PlusCont>  */}
+
+            <PlusCont  onClick={() => history.push("/AddSongs")} active={active}>
+              <PlusIcon>
+                <FiPlus size="24px" color="#F06449"/>
+              </PlusIcon>
             </PlusCont>
 
 
-            <ProfileCont  onClick={() => history.push("/Profile")} active={active}>
+            {/* <ProfileCont  onClick={() => history.push("/Profile")} active={active}>
               <ProfileIcon
                 src="user.svg"
                 active={active}
               ></ProfileIcon>
-              <Text>Profile</Text>
-            </ProfileCont>
 
+            </ProfileCont> */}
+
+
+            <ProfileCont  onClick={() => history.push("/Profile")} active={active}>
+              <ProfileIcon>
+                <FiUser size="24px" color="#F06449"/>
+              </ProfileIcon>
+
+            </ProfileCont>
 
 
         </OptionContainer>

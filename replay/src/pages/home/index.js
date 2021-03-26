@@ -8,13 +8,18 @@ import PostCard from "../../comps/PostCard";
 import {HiSearch} from 'react-icons/hi';
 
 import {
-    useHistory
+    useHistory,
+    useParams
 } from "react-router-dom";
 
 
 const Home =  () => {
-    const [playlist, setPlaylist] = useState([]);
+    const history = useHistory();
+    const params = useParams();
 
+    const [playlist, setPlaylist] = useState([]);
+    const [user, setUser] = useState();
+   
     const GetPlaylists = async () => {
         var resp = await axios.get("http://localhost:4200/api/playlists");
 
@@ -23,14 +28,27 @@ const Home =  () => {
     }
 
     // map to get user
+    const GetUser = async () => {
+        var resp2 = await axios.get("http://localhost:4200/api/users");
 
-    useEffect(() => {
-        CheckToken();
-        GetPlaylists()
-    },[]);
+        // const {data:{result:[{id}]}} = resp2;
+        // console.log(id, "hi")
+        // setUser(id)
+
+        // console.log(resp2.data, "hello")
+        // setUser({
+        //     ...resp2.data.result[0]
+        // })
+    }
+
+    const LikePlaylist = async (id) => {
+        var resp3 = await axios.post("http://localhost:4200/api/liked", { playlist_id:id });
+
+        console.log(resp3, "test")
 
 
-    const history = useHistory();
+
+    }
 
     const CheckToken = async () => {
         //assume we will store the login in the sessionStorage
@@ -44,9 +62,11 @@ const Home =  () => {
     }
 
     useEffect(() => {
-        //when the page loads, do the following
         CheckToken();
-    },[])
+        GetPlaylists();
+        GetUser();
+        //LikePlaylist();
+    },[]);
 
     return <div className="home-container">
         <div className="search">
@@ -66,8 +86,15 @@ const Home =  () => {
                         <PostCard
                             viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
                             plname={o.name}
-                            plimg={o.images}
+                            plimg={o.image_url}
 
+                            //for liking 
+                            onClick={LikePlaylist}
+                            id={o.id}
+
+                            // getting user creds
+                            profile={o.usersimg}
+                            name={o.username}
                         />
                     );
                 })}
