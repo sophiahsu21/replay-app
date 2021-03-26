@@ -23,6 +23,7 @@ const Profile = () => {
     const history = useHistory();
 
     const getUserData = async () => {
+
         const result = await axios.get('/api/users')
         console.log(result);
 
@@ -87,7 +88,6 @@ const Profile = () => {
 
     const handleOpen = () => {
         setOpen(!open);
-        console.log("hai")
     }
     useEffect(() => {
         CheckToken();
@@ -115,7 +115,7 @@ const Profile = () => {
                         <button type="submit" className="submit-button">Submit</button>
                     </form>
                 </Box>
-                <h3>My Playlists</h3>           
+                <div className="text"><h3>My Playlists</h3></div>          
                 <div className="content">
                     {playlist.map((o) => {
                         return (
