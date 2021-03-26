@@ -32,9 +32,9 @@ const NameUser = styled.h2`
 `;
 
 
-const PlaylistCover = ({ cover, name }) => {
+const PlaylistCover = ({ cover, name, id }) => {
   return (
-    <InfoContainer>
+    <InfoContainer id={id}>
       <Cover src={cover}/>
       <NameUser>{name}</NameUser>
     </InfoContainer>

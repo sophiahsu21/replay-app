@@ -4,12 +4,14 @@ import axios from "axios";
 import {BsMusicNoteBeamed} from "react-icons/bs";
 
 import {
-    useHistory
+    useHistory,
+    useParams
 } from "react-router-dom";
 
 const NewPlaylist = () => {
 
     const history = useHistory();
+    const params = useParams();
 
     const [playlist, setPlaylist] = useState("");
     const [user, setUser] = useState();
@@ -29,9 +31,11 @@ const NewPlaylist = () => {
     const HandleCreatePlaylistName = async () => {
 
         const resp = await axios.post("http://localhost:4200/api/playlists", {name:playlist});
-        console.log(resp.data);
+        console.log(resp.data.result);
+
+       const foo = resp.data.result
  
-        history.push("/PlaylistAdd");
+        history.push("/addSongs/"+ foo);
     }
 
     useEffect(() => {

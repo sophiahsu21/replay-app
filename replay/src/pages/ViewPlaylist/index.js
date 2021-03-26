@@ -42,7 +42,7 @@ const ViewPlaylist = () => {
 
     const GetAllSongs = async () => {
         //axios.get('/api/playlist_songs/:id'
-        var resp = await axios.get("./songs.json");
+        var resp = await axios.get("http://localhost:4200/api/playlist_songs");
         setAllSongs(resp); //assuming this will be resp.data
     }
 
