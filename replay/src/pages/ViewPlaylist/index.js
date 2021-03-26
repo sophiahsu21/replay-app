@@ -54,7 +54,7 @@ const ViewPlaylist = () => {
     return (
         <div className="playlist-container">
             <PlaylistCover
-                cover={info.images}
+                cover={info.image_url}
                 name={info.name}
             />
             <div className="profile-btn" onClick={ViewProfile}>
