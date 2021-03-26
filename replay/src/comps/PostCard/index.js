@@ -125,6 +125,7 @@ const PostCard = ({ plname, plimg, viewPlaylist, profile, name }) => {
         size="1.40rem"
         color="#ddd"
       />
+      
     </PostCardLike>
     <PostCardLike showIcon={!icon} onClick={() => { handleClick() }}>
       <FaHeart
