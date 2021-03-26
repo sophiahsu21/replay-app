@@ -50,7 +50,7 @@ const IconContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 5px 20px;
+  padding: 15px 20px;
   cursor: pointer;
   &:after {
     position: absolute;

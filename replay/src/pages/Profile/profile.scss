@@ -11,6 +11,11 @@ padding-top:3rem;
         width: 297px;
         margin-bottom: 25px;
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 }
 // .text{
 // background-color: red;
