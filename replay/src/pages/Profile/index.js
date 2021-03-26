@@ -83,6 +83,7 @@ const Profile = () => {
         var resp3 = await axios.get("http://localhost:4200/api/likes")
 
         setLiked([...resp3.data.result]);
+        console.log(resp3, "hi")
     }
 
     const handleOpen = () => {
@@ -132,9 +133,9 @@ const Profile = () => {
                     {liked.map((o) => {
                         return (
                             <PlaylistCard
+                                viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
                                 plname={o.name}
                                 plimg={o.images}
-
                             />
                         );
                     })}
