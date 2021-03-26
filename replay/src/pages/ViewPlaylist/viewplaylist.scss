@@ -1,15 +1,24 @@
-.profile-container {
+.playlist-container {
     width:100vw;
-    height:100vh;
+    height:auto;
     justify-content: center;
-    display:block;
-    .navbar{
-        padding-top:290px;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+
+    h3 {
+        width: 297px;
+        margin-top: 15px;
+        margin-bottom: 25px;
     }
-    .text{
-       padding-left:42%;
-       padding-top:4%;
-       font-weight: 600;
+
+    .songs {
+
+    max-height: 350px;
+    overflow-y: scroll;
     }
+
+    .songs::-webkit-scrollbar {
+        display: none;
     }
-    
+}

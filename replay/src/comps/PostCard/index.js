@@ -1,43 +1,29 @@
-
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {VscHeart} from 'react-icons/vsc';
+
+import { VscHeart } from 'react-icons/vsc';
+import { FaHeart } from 'react-icons/fa';
+import {IoIosArrowForward} from 'react-icons/io';
 
 const Container = styled.div`
-display:flex;
-
-position: relative;
-top:20%;
-left:45%;
-margin:10px;
-transform: translate(-50%, 0%);
+  margin-bottom: 20px;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 321px;
+  height: 206px;
+  background: #1E1C21;
+  border-radius: 15px;
 `;
-
-
-const PostCardCont = styled.div`
-position: relative;
-top:10%;
-left:50%;
-margin:10px;
-transform: translate(-50%, 0%);
-display:flex;
-width: 321px;
-height: 206px;
-background: #1E1C21;
-border-radius: 15px;
-`;
-
 
 const User = styled.div`
-position: relative;
-width: 321px;
-height: 206px;
-background: #1E1C21;
-border-radius: 15px;
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  max-height: 20px;
 `;
 
 const Profile = styled.div`
-position:absolute  ;
   min-width: 20px;
   min-height: 20px;
   border-radius: 50%;
@@ -46,116 +32,113 @@ position:absolute  ;
   background-image: ${(props) =>
     props.profile ? props.profile : "url('avatar.svg')"};
   background-size: 10px 10px;
-
-  background-position:center center;
+  background-position:center;
   background-repeat: no-repeat;
-    margin-top:20px;
-    margin-left:22px;
-    
 `;
 const NameUser = styled.h6`
-  
-  position: absolute;
-  margin-top:22px;
-  margin-left:50px;
+  margin-left:15px;
+`;
+
+const PlaylistContainer = styled.div`
+  display:flex;
   justify-content:center;
   align-items:center;
 `;
 
 const PlaylistCardCont = styled.div`
-display:flex;
-position:absolute;
-margin-top:58px;
-margin-left:10px;
-height: 88px;
-width: 297px;
-background: #121212;
-border-radius: 15px;
+  display:flex;
+  margin-bottom:20px;
+  height: 88px;
+  width: 297px;
+  background: #1E1C21;
+  border-radius: 15px;
+  align-items: center;
+  background-color: #121212;
 `;
-
 
 const PlaylistImage = styled.img`
-position:relative;
-margin: 12px 12px 12px ;
-height: 64px;
-width: 64px;
-border-radius: 4px;
+  margin: 12px 12px 12px ;
+  min-height: 64px;
+  min-width: 64px;
+  max-height: 64px;
+  max-width: 64px;
+  overflow-wrap: break-word;
+  border-radius: 4px;
 `;
 
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+`;
 
 const PlaylistName = styled.div`
-position:relative;
-margin: 20px 10px;
-font-size:16px;
-font-weight:600;
+  margin: 0 0 5px 10px;
+  font-size:16px;
+  font-weight:700;
 `;
 
+const PlaylistIcon = styled.div`
+  position: relative;
+  right: 20px;
 
-const PlaylistIcon = styled.img`
-display:flex;
-position:relative;
-width:10px;
-height:18px;
-padding-left:60px;
-padding-top:35px;
-`;
-
-const PlaylistLikes = styled.div`
-padding-top:15px;
-font-size:12px;
-font-weight:400;
-color: #F5F5F5 55%;
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const PostCardLike = styled.div`
-position:relative;
-margin-top:40px;
-width:33px;
-height:33px;
-padding-top:120px;
-padding-right:20px;
-color: #F5F5F5 55%;
+  display: ${props => props.showIcon ? "flex" : "none"};
+  width: 305px;
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  color: #F5F5F5 55%;
   cursor: pointer;
 `;
 
-const PostCard = ({plname,pllikes, profile,name}) => {
+const PostCard = ({ plname, plimg, viewPlaylist, profile, name }) => {
+  const [icon, setIcon] = useState(true);
 
-    return <Container>
-                <PostCardCont>
-                    <User>
-                    <Profile profile={profile}>
-                     {" "}
-                     </Profile>
-                     <NameUser>{name}</NameUser>
-                    </User>
-              
-                <PlaylistCardCont>
-        <PlaylistImage src="moody.png" >
-    {/* need to use image that user upload */}
-        </PlaylistImage>
-        <PlaylistName>
-        {plname}
-        <br></br>
-        <PlaylistLikes>{pllikes}</PlaylistLikes>
-        </PlaylistName>
-        <PlaylistIcon src="arrow1.svg"></PlaylistIcon>
-        </PlaylistCardCont>
+  const handleClick = () => {
+    setIcon(!icon);
+  }
 
-        <PostCardLike>
-        <VscHeart 
+  return <Container>
+    <User>
+      <Profile profile={profile} />
+      <NameUser>{name}</NameUser>
+    </User>
+
+    <PlaylistContainer>
+       <PlaylistCardCont>
+        <PlaylistImage src={plimg} />
+          <Content>
+          <PlaylistName>{plname}</PlaylistName>
+          <PlaylistIcon onClick={viewPlaylist}><IoIosArrowForward size="24px" color="#F06449"/></PlaylistIcon>
+        </Content>
+      </PlaylistCardCont>
+    </PlaylistContainer>
+
+    <PostCardLike showIcon={icon} onClick={() => { handleClick() }}>
+      <VscHeart
         size="1.40rem"
         color="#ddd"
-        ></VscHeart>
-        </PostCardLike>
-        </PostCardCont>
-
-        </Container>
+      />
+    </PostCardLike>
+    <PostCardLike showIcon={!icon} onClick={() => { handleClick() }}>
+      <FaHeart
+        size="1.40rem"
+        color="#F06449"
+      />
+    </PostCardLike>
+  </Container>
 }
 
 PostCard.defaultProps = {
-    plname: "Moody",
-    pllikes: "9 likes",
-    name: "Simon"
+  plname: "Moody",
+  pllikes: "9 likes",
+  name: "Simon"
 }
 
 export default PostCard;

@@ -16,6 +16,9 @@
 @import './pages/AddSongs/addsongs.scss';
 @import './pages/Profile/profile.scss';
 @import './pages/Home/home.scss';
+@import './pages/SearchPlaylist/searchplaylist.scss';
+@import './pages/ViewPlaylist/viewplaylist.scss';
+
 .App {
     margin: 0 auto;
     width: 100vw;
@@ -48,6 +51,7 @@ h1 {
 h2 {
     font-size: 1.5em;
     font-weight: 700;
+    margin-top:none;
 }
 
 h3 {
