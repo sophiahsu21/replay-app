@@ -7,7 +7,8 @@ import Avatar from "../../comps/Avatar";
 import PlaylistCard from "../../comps/PlaylistCard";
 
 import {
-    useHistory
+    useHistory,
+    useParams
 } from "react-router-dom";
 
 
@@ -68,7 +69,7 @@ const Profile = () => {
     }
 
     const getMyPlaylists = async () => {
-        var resp2 = await axios.get("http://localhost:4200/api/user_playlists");
+        var resp2 = await axios.get("http://localhost:4200/api/user_playlists/");
     
         setPlaylist([...resp2.data.results]);
         console.log(resp2.data.results)

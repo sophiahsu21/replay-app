@@ -164,7 +164,7 @@ const NavBar = ({ propActive }) => {
             </ExploreCont>
 
 
-            <PlusCont  onClick={() => history.push("/AddSongs")} active={active}>
+            <PlusCont  onClick={() => history.push("/NewPlaylist")} active={active}>
               <PlusIcon
                 src="plus.svg"
                 active={active}
