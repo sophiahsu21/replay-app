@@ -1,7 +1,24 @@
-.profile-container {
+.playlist-container {
     width:100vw;
-    height:100vh;
-justify-content: center;
+    height:auto;
+    justify-content: center;
+    align-items: center;
     display:flex;
+    flex-direction: column;
+
+    h3 {
+        width: 297px;
+        margin-top: 15px;
+        margin-bottom: 25px;
     }
-    
+
+    .songs {
+
+    max-height: 350px;
+    overflow-y: scroll;
+    }
+
+    .songs::-webkit-scrollbar {
+        display: none;
+    }
+}

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import {CgAdd} from "react-icons/cg";
 
+const MainCont = styled.div``;
+
 const Container = styled.div`
     background-color: #121212;
     min-width: 291px;
@@ -49,7 +51,7 @@ const SongDet = styled.div`
 
 
 
-const AddSong = ({songname, songartist}) => {
+const AddSong = ({song, artist}) => {
     return <Container>
         <SongCont>
             <CgAdd
@@ -58,16 +60,16 @@ const AddSong = ({songname, songartist}) => {
                 cursor="pointer"
             /> {/*onclick goes here*/}
             <SongDet>
-                <h5>{songname}</h5>
-                <h6>{songartist}</h6>
+                <h5>{song}</h5>
+                <h6>{artist}</h6>
             </SongDet>
         </SongCont>
     </Container>
 }
 
 AddSong.defaultProps = {
-    songname: "I Like It When You Love Me",
-    songartist: "Oh Wonder"
+    song: "I Like It When You Love Me",
+    artist: "Oh Wonder"
 }
 
 export default AddSong;

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-//shortcut imports
 import NavBar from "../../comps/NavBar";
 import PostCard from "../../comps/PostCard";
-import FilterBar from 'comps/FilterBar';
+
+import {HiSearch} from 'react-icons/hi';
 
 import {
     useHistory
@@ -16,11 +16,13 @@ const Home =  () => {
     const [playlist, setPlaylist] = useState([]);
 
     const GetPlaylists = async () => {
-        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlists");
+        var resp = await axios.get("http://localhost:4200/api/playlists");
 
         console.log(resp);
         setPlaylist(resp.data.playlists);
     }
+
+    // map to get user
 
     useEffect(() => {
         CheckToken();
@@ -47,19 +49,28 @@ const Home =  () => {
     },[])
 
     return <div className="home-container">
-        <FilterBar placeholder='Search for Playlists'/>
+        <div className="search">
+            <HiSearch
+                size="1.25rem"
+                color="#F5F5F5"
+                cursor="pointer"
+                onClick={() => history.push("/SearchPlaylist")}
+            />
+        </div>
         <div className="home-cont">
-            <div className="home-text"><h2>Welcome Back</h2></div>
+            {/* <div className="home-text"><h2>Welcome Back</h2></div> */}
+            <h2>Welcome Back</h2>
             <div className="home-playlist">
                 {playlist.map((o) => {
-                        return (
-                            <PostCard
-                                plname={o.name}
-                                // plimg={o.img}
+                    return (
+                        <PostCard
+                            viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
+                            plname={o.name}
+                            plimg={o.images}
 
-                            />
-                        );
-                    })}
+                        />
+                    );
+                })}
             </div>
             <NavBar className="navbar"/>
         </div>
