@@ -15,10 +15,10 @@ const NewPlaylist = () => {
 
     const HandleCreatePlaylistName = async () => {
         //create a playlist
-        const resp = await axios.post("https://replay-music-app.herokuapp.com/api/playlists", { playlistId:playlist });
-        console.log(resp.data);
+        // const resp = await axios.post("https://replay-music-app.herokuapp.com/api/playlists", { playlistId:playlist });
+        // console.log(resp.data);
         // if statement maybe
-        // history.push("/PlaylistAdd")
+        history.push("/PlaylistAdd")
     }
 
     return (

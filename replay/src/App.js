@@ -68,7 +68,10 @@ function App() {
           </Route>    
           <Route exact path="/ViewPlaylist">
             <ViewPlaylist />
-          </Route>         
+          </Route>
+          <Route path="/ViewPlaylist/:id">
+            <ViewPlaylist />
+          </Route>
         </Switch>
       </div>
     </Router>

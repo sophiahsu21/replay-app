@@ -59,7 +59,7 @@ const AddSongs = () => {
         <div className="pa-btnCont">
             <button className="cancel" onClick={() => history.push("/NewPlaylist")}>Back</button>
             <button className="create" onClick={() =>
-                history.push("/NewPlaylist")
+                history.push("/ViewPlaylist")
             }>Done</button>
         </div>
     </div>
