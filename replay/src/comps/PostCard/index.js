@@ -104,7 +104,7 @@ const PostCardLike = styled.div`
   cursor: pointer;
 `;
 
-const PostCard = ({ plname, plimg, viewPlaylist, profile, name }) => {
+const PostCard = ({ id, plname, plimg, viewPlaylist, profile, name, onClick }) => {
   const [icon, setIcon] = useState(true);
 
   const handleClick = () => {
@@ -127,14 +127,27 @@ const PostCard = ({ plname, plimg, viewPlaylist, profile, name }) => {
       </PlaylistCardCont>
     </PlaylistContainer>
 
-    <PostCardLike showIcon={icon} onClick={() => { handleClick() }}>
+    <PostCardLike
+      showIcon={icon}
+      onClick={() => {
+        handleClick();
+
+        onClick(id);
+      }}
+    >
       <VscHeart
         size="1.40rem"
         color="#ddd"
       />
       
     </PostCardLike>
-    <PostCardLike showIcon={!icon} onClick={() => { handleClick() }}>
+    <PostCardLike
+      showIcon={!icon}
+      onClick={() => {
+        handleClick();
+        // unlike();
+      }}
+    >
       <FaHeart
         size="1.40rem"
         color="#F06449"
@@ -146,7 +159,8 @@ const PostCard = ({ plname, plimg, viewPlaylist, profile, name }) => {
 PostCard.defaultProps = {
   plname: "Moody",
   pllikes: "9 likes",
-  name: "Simon"
+  name: "Simon",
+  onClick:()=>{}
 }
 
 export default PostCard;
