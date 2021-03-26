@@ -12,7 +12,7 @@ const Container = styled.div`
     max-width: 291px;
     max-height: 77px;
     border-radius: 15px;
-    display: flex;
+    display:${({hide})=> hide ? "flex" : "none"};
     align-items: center;
     transition: 200ms ease-in-out;
     margin: 0 15px;
@@ -50,15 +50,21 @@ const SongDet = styled.div`
 `;
 
 
+const AddSong = ({song, artist, add}) => {
 
-const AddSong = ({song, artist}) => {
-    return <Container>
+    const [hide, setHide] = useState(true)
+
+    const handleHide = () =>{
+        setHide(false)
+    }
+    return <Container  hide={hide}>
         <SongCont>
             <CgAdd
                 color="#F5F5F5"
                 size="24px"
                 cursor="pointer"
-            /> {/*onclick goes here*/}
+                onClick={add}
+            /> 
             <SongDet>
                 <h5>{song}</h5>
                 <h6>{artist}</h6>
@@ -69,7 +75,8 @@ const AddSong = ({song, artist}) => {
 
 AddSong.defaultProps = {
     song: "I Like It When You Love Me",
-    artist: "Oh Wonder"
+    artist: "Oh Wonder",
+    add:()=>{}
 }
 
 export default AddSong;

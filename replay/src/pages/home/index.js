@@ -16,7 +16,7 @@ const Home =  () => {
     const [playlist, setPlaylist] = useState([]);
 
     const GetPlaylists = async () => {
-        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlists");
+        var resp = await axios.get("http://localhost:4200/api/playlists");
 
         console.log(resp);
         setPlaylist(resp.data.playlists);
