@@ -6,6 +6,24 @@
     display:flex;
     flex-direction: column;
 
+    .profile-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 21px;
+        background-color: #1E1C21;
+        padding: 5px 15px;
+        border-radius: 25px;
+
+        h6 {
+            margin-right: 10px;
+        }
+    }
+
+    .profile-btn:hover {
+        cursor: pointer;
+    }
+
     h3 {
         width: 297px;
         margin-top: 15px;
