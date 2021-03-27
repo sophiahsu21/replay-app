@@ -1,0 +1,26 @@
+.profile-container {
+width:100%;
+height:auto;
+// background-color:aqua;
+display:flex;
+flex-direction: column;
+align-items: center;
+padding-top:3rem;
+
+    h3 {
+        width: 297px;
+        margin-bottom: 25px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+// .text{
+// background-color: red;
+// display: flex;
+// justify-content: center;
+// align-items: center;
+// }
+ 

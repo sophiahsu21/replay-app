@@ -11,6 +11,7 @@ import Home from 'pages/Home';
 import SearchPlaylist from 'pages/SearchPlaylist';
 import Profile from 'pages/Profile';
 import ViewPlaylist from 'pages/ViewPlaylist';
+import ViewProfile from 'pages/ViewProfile';
 import Modal from 'comps/Modal';
 
 import {
@@ -37,6 +38,7 @@ function App() {
           <Link to="/SearchPlaylist">Search Playlist</Link>
           <Link to="/Profile">Profile</Link>
           <Link to="/ViewPlaylist">View Playlist</Link>
+          <Link to="/ViewProfile">View Profile</Link>
         </div>
         <Switch>
           <Route exact path="/">
@@ -71,6 +73,9 @@ function App() {
           </Route>
           <Route exact path="/Profile">
             <Profile />
+          </Route>
+          <Route path="/ViewProfile/:id">
+            <ViewProfile />
           </Route>    
           <Route exact path="/ViewPlaylist">
             <ViewPlaylist />
