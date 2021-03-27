@@ -14,7 +14,7 @@ const NewPlaylist = () => {
     const [cover, setCover] = useState("");
     
     const CheckToken = async () => {
-        const resp = await axios.get("http://localhost:4200/api/profile");
+        const resp = await axios.get("https://replay-music-app.herokuapp.com/api/profile");
 
         const {data:{result:[{id}]}} = resp
         setUser(id)
@@ -26,7 +26,7 @@ const NewPlaylist = () => {
 
     const HandleCreatePlaylistName = async () => {
 
-        const resp = await axios.post("http://localhost:4200/api/playlists", { name:playlist, image_url:cover });
+        const resp = await axios.post("https://replay-music-app.herokuapp.com/api/playlists", { name:playlist, image_url:cover });
         console.log(resp.data.result);
 
         const foo = resp.data.result
