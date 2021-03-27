@@ -24,8 +24,8 @@ const User = styled.div`
 `;
 
 const Profile = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   margin-bottom:3px;
   border-radius: 50%;
   background: linear-gradient(180deg, rgba(240, 100, 73, 0.54) 0%, rgba(255, 255, 255, 0) 100%), rgba(194, 181, 181, 0.34);
@@ -35,7 +35,7 @@ const Profile = styled.img`
   align-items:center;
   justify-content:center;
   background-repeat: no-repeat; 
-  object-fit:contain;
+  object-fit:cover;
   overflow:hidden;
   & > img {
     width:auto;
