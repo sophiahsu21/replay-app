@@ -13,7 +13,7 @@ import {
     useParams
 } from "react-router-dom";
 
-const songs = require("./songs.json");
+// const songs = require("./songs.json");
     
 const ViewPlaylist = () => {
 
@@ -21,7 +21,7 @@ const ViewPlaylist = () => {
     const params = useParams();
 
     // const [playlist, setPlaylist] = useState("");
-    const [allsongs, setAllSongs] = useState(songs);
+    const [songs, setSongs] = useState([]);
     const [info, setInfo] = useState([]);
 
     const GetPlaylistInfo = async () => {
@@ -42,8 +42,12 @@ const ViewPlaylist = () => {
 
     const GetAllSongs = async () => {
         //axios.get('/api/playlist_songs/:id'
-        var resp = await axios.get("http://localhost:4200/api/playlist_songs");
-        setAllSongs(resp); //assuming this will be resp.data
+        var resp = await axios.get("http://localhost:4200/api/playlist_songs/"+params.id);
+        console.log(resp.data.result)
+        setSongs(resp.data.result)
+    
+        // setSongs(resp.data)
+        // setSongs(resp); //assuming this will be resp.data
     }
 
     useEffect(() => {
@@ -63,10 +67,11 @@ const ViewPlaylist = () => {
             </div>
             <h3>Songs</h3>
             <div className="songs">
-                {allsongs.map((o) => {
+                {songs.map((o) => {
                     return (
                         <SongCard
-                            albumCover={o.album.cover_medium}
+                            id={o.id}
+                            albumCover={o.image_url}
                             song={o.title}
                             artist={o.artist.name}
                             // not too sure cuz there are objects inside objects
