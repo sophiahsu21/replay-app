@@ -24,7 +24,7 @@ const Profile = () => {
 
     const getUserData = async () => {
 
-        const result = await axios.get('/api/users')
+        const result = await axios.get('https://replay-music-app.herokuapp.com/api/users')
         console.log(result);
 
         const [picture] = result.data.pictures
@@ -44,7 +44,7 @@ const Profile = () => {
         event.preventDefault()
         const data = new FormData()
         data.append('image', file)
-        const result = await axios.post('/api/update_avatar', data)
+        const result = await axios.post('https://replay-music-app.herokuapp.com/api/update_avatar', data)
         console.log(result)
         getUserData();
         setOpen(!open)
@@ -57,7 +57,7 @@ const Profile = () => {
     //displaying the profile
 
     const CheckToken = async () => {
-        const resp = await axios.get("http://localhost:4200/api/profile");
+        const resp = await axios.get("https://replay-music-app.herokuapp.com/api/profile");
 
         const [user] = resp.data.result;
         console.log(user);
@@ -68,7 +68,7 @@ const Profile = () => {
     }
 
     const getMyPlaylists = async () => {
-        var resp2 = await axios.get("http://localhost:4200/api/user_playlists/");
+        var resp2 = await axios.get("https://replay-music-app.herokuapp.com/api/user_playlists/");
     
         setPlaylist([...resp2.data.results]);
         console.log(resp2.data.results)
@@ -81,7 +81,7 @@ const Profile = () => {
 
     const GetLikedPlaylists = async () => {
         // show liked playlists
-        var resp3 = await axios.get("http://localhost:4200/api/likes")
+        var resp3 = await axios.get("https://replay-music-app.herokuapp.com/api/likes")
 
         setLiked([...resp3.data.result]);
         console.log(resp3, "hi")
