@@ -73,7 +73,7 @@ const ViewPlaylist = () => {
                             id={o.id}
                             albumCover={o.image_url}
                             song={o.title}
-                            artist={o.artist.name}
+                            artist={o.artist}
                             // not too sure cuz there are objects inside objects
                         />
                     )

@@ -21,10 +21,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .playlistCoverCont:hover {
     cursor: pointer;
+}
+
+h3 {
+    // width: 297px;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }
 
 .playlistCover {

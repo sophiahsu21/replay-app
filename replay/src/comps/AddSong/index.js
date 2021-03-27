@@ -10,7 +10,7 @@ const Container = styled.div`
     min-width: 291px;
     min-height: 77px;
     max-width: 291px;
-    max-height: 77px;
+    max-height: auto;
     border-radius: 15px;
     display:${({hide})=> hide ? "none" : "flex"};
     align-items: center;
