@@ -16,49 +16,11 @@
     justify-content: center;
 }
 
-.playlistCoverCont {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-}
-
-.playlistCoverCont:hover {
-    cursor: pointer;
-}
-
-h3 {
-    // width: 297px;
-    margin-bottom: 25px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.playlistCover {
-    background-color: #F06449;
-    width: 159px;
-    height: 159px;
-    border-radius: 17px;
-    margin: 10px 0 118px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 input {
     min-height: 51px;
     min-width: 275px;
     padding: 16px;
-    border: 1px solid #F5F5F5;
-    box-sizing: border-box;
-    border-radius: 7px;
     opacity: 0.75;
-    background-color: #050505;
-    color: #F5F5F5;
     margin: 10px 0 25px 0;
 }
 
