@@ -13,6 +13,8 @@ import {
     useParams
 } from "react-router-dom";
 
+import ProBtn from "../../comps/ProBtn";
+
 // const songs = require("./songs.json");
     
 const ViewPlaylist = () => {
@@ -23,11 +25,12 @@ const ViewPlaylist = () => {
     // const [playlist, setPlaylist] = useState("");
     const [songs, setSongs] = useState([]);
     const [info, setInfo] = useState([]);
+    const [profile, setProfile] = useState([]);
 
     const GetPlaylistInfo = async () => {
         var resp = await axios.get("http://localhost:4200/api/playlist_info/"+params.id)
 
-        // console.log(resp.data)
+        console.log(resp.data, "bye")
         setInfo({
             ...resp.data.result[0]
         })
@@ -38,9 +41,13 @@ const ViewPlaylist = () => {
 
         console.log(resp2.data, "hi")
 
-        const {data:{result:[{user_id}]}} = resp2
+        setProfile({
+            ...resp2.data.result[0]
+        })
+
+        // const {data:{result:[{user_id}]}} = resp2
         
-        history.push("/ViewProfile/"+ user_id)
+        // history.push("/ViewProfile/"+ user_id)
     }
 
     const GetAllSongs = async () => {
@@ -56,6 +63,7 @@ const ViewPlaylist = () => {
     useEffect(() => {
         GetPlaylistInfo();
         GetAllSongs();
+        // ViewProfile();
     },[])
 
     return (
@@ -64,10 +72,13 @@ const ViewPlaylist = () => {
                 cover={info.image_url}
                 name={info.name}
             />
-            <div className="profile-btn" onClick={ViewProfile}>
+            {/* <div className="profile-btn" onClick={ViewProfile}>
                 <h6>View Profile</h6>
                 <IoIosArrowForward size="12px" color="#F5F5F5" />
-            </div>
+            </div> */}
+            <ProBtn onClick={ViewProfile}
+            //    onClick={() => history.push("ViewProfile/"+profile.userId)}
+            />
             <h3>Songs</h3>
             <div className="songs">
                 {songs.map((o) => {
