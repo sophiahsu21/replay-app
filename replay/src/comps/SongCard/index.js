@@ -10,7 +10,8 @@ const Container = styled.div`
 const SongCardCont = styled.div`
     display:flex;
     align-items: center;
-    height: 88px;
+    min-height: 88px;
+    max-height: auto;
     width: 297px;
     background: #1E1C21;
     border-radius: 15px;
