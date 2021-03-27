@@ -21,7 +21,7 @@ const AddSongs = () => {
 
     const getSongs = async () => {
         //endpoint from song api?
-        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/all_songs");
+        var resp = await axios.get("http://localhost:4200/api/all_songs");
         // console.log(resp.data.result)
         var music = resp.data.result.slice(0, 100)
         setSongs(music)
@@ -30,7 +30,7 @@ const AddSongs = () => {
     }
 
     const handleAdd = (id) =>{
-        var resp = axios.post('https://replay-music-app.herokuapp.com/api/add_songs', {song_id:id, playlist_id:params.id})
+        var resp = axios.post('http://localhost:4200/api/add_songs', {song_id:id, playlist_id:params.id})
         console.log(id)   
     }
 

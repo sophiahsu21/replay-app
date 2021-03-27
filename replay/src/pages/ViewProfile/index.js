@@ -28,7 +28,7 @@ const ViewProfile = () => {
     // const getUserData = async () => {
 
 
-        const result = await axios.get('https://replay-music-app.herokuapp.com/api/api/users/')
+        // const result = await axios.get('https://replay-music-app.herokuapp.com/api/api/users/')
         // console.log(result, "user data");
 
 
