@@ -35,7 +35,7 @@ const Profile = styled.img`
   align-items:center;
   justify-content:center;
   background-repeat: no-repeat; 
-  object-fit:contain;
+  object-fit:cover;
   overflow:hidden;
   & > img {
     width:auto;

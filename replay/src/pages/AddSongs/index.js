@@ -42,6 +42,9 @@ const AddSongs = () => {
             })
         )
     }
+    const handleCreate = ()=>{
+        history.push("/ViewPlaylist/"+params.id)
+    }
 
     useEffect(() => {
         getSongs();
@@ -71,9 +74,7 @@ const AddSongs = () => {
         </div>
         <div className="pa-btnCont">
             <button className="cancel" onClick={() => history.push("/NewPlaylist")}>Back</button>
-            <button className="create" onClick={() =>
-                history.push("/ViewPlaylist")
-            }>Done</button>
+            <button className="create" onClick={handleCreate}>Done</button>
         </div>
     </div>
 }

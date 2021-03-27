@@ -123,7 +123,7 @@ const Profile = () => {
                             <PlaylistCard
                                 viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
                                 plname={o.name}
-                                plimg={o.images}
+                                plimg={o.image_url}
                             />
                         );
                     })}
@@ -135,7 +135,7 @@ const Profile = () => {
                             <PlaylistCard
                                 viewPlaylist={() => history.push("/ViewPlaylist/"+o.id)}
                                 plname={o.name}
-                                plimg={o.images}
+                                plimg={o.image_url}
                             />
                         );
                     })}
