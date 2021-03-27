@@ -5,7 +5,6 @@ import LandingPage from 'pages/LandingPage';
 import LogIn from 'pages/LogIn';
 import Register from 'pages/Register';
 import NewPlaylist from 'pages/NewPlaylist';
-import PlaylistAdd from 'pages/PlaylistAdd';
 import AddSongs from 'pages/AddSongs';
 import Home from 'pages/Home';
 import SearchPlaylist from 'pages/SearchPlaylist';
@@ -26,20 +25,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="pagesIndex">
-          <h1>Pages</h1>
-          <Link to="/">Landing Page</Link>
-          <Link to="/LogIn">Sign In</Link>
-          <Link to="/Register">Sign Up</Link>
-          <Link to="/NewPlaylist">Create Playlists</Link>
-          <Link to="/PlaylistAdd">Playlist Add</Link>
-          <Link to="/AddSongs">Add Songs</Link>
-          <Link to="/Home">Home</Link>
-          <Link to="/SearchPlaylist">Search Playlist</Link>
-          <Link to="/Profile">Profile</Link>
-          <Link to="/ViewPlaylist">View Playlist</Link>
-          <Link to="/ViewProfile">View Profile</Link>
-        </div>
         <Switch>
           <Route exact path="/">
             <LandingPage />
@@ -52,12 +37,6 @@ function App() {
           </Route>
           <Route exact path="/NewPlaylist">
             <NewPlaylist />
-          </Route>
-          <Route exact path="/PlaylistAdd">
-            <PlaylistAdd />
-          </Route>
-          <Route path="/PlaylistAdd/:id">
-            <PlaylistAdd />
           </Route>
           <Route exact path="/AddSongs">
             <AddSongs />

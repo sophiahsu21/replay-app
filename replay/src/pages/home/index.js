@@ -18,14 +18,14 @@ const Home =  () => {
     const [playlist, setPlaylist] = useState([]);
    
     const GetPlaylists = async () => {
-        var resp = await axios.get("http://localhost:4200/api/playlists");
+        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlists");
 
         console.log(resp);
         setPlaylist(resp.data.playlists);
     }
 
     const LikePlaylist = async (id) => {
-        var resp3 = await axios.post("http://localhost:4200/api/liked", { playlist_id:id });
+        var resp3 = await axios.post("https://replay-music-app.herokuapp.com/api/liked", { playlist_id:id });
 
         console.log(resp3, "test")
 
