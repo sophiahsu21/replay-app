@@ -66,13 +66,18 @@ const PlaylistCardCont = styled.div`
 `;
 
 const PlaylistImage = styled.img`
-  margin: 12px 12px 12px ;
-  min-height: 64px;
-  min-width: 64px;
-  max-height: 64px;
-  max-width: 64px;
-  overflow-wrap: break-word;
-  border-radius: 4px;
+    margin: 12px 12px 12px ;
+    height: 64px;
+    width: 64px;
+    overflow-wrap: break-word;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    overflow:hidden;
+    & > img {
+        width:auto;
+        height:100%;
+    }
 `;
 
 const Content = styled.div`

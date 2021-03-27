@@ -18,7 +18,7 @@ const Cover = styled.img`
   background-image: ${(props) =>
     props.profile ? props.profile : "url('https://data.whicdn.com/images/343177373/original.jpg')"};
   /* background-image: url("https://data.whicdn.com/images/343177373/original.jpg"); */
-  background-size: cover;
+  object-fit: cover;
   overflow:hidden;
   background-repeat: no-repeat;
   margin-top:85px;

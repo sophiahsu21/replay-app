@@ -28,7 +28,7 @@ const ViewPlaylist = () => {
     const [profile, setProfile] = useState([]);
 
     const GetPlaylistInfo = async () => {
-        var resp = await axios.get("http://localhost:4200/api/playlist_info/"+params.id)
+        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlist_info/"+params.id)
 
         console.log(resp.data, "bye")
         setInfo({
@@ -37,7 +37,7 @@ const ViewPlaylist = () => {
     }
 
     const ViewProfile = async () => {
-        var resp2 = await axios.get("http://localhost:4200/api/playlist_creator/"+params.id)
+        var resp2 = await axios.get("https://replay-music-app.herokuapp.com/api/playlist_creator/"+params.id)
 
         console.log(resp2.data, "hi")
 
@@ -52,8 +52,8 @@ const ViewPlaylist = () => {
 
     const GetAllSongs = async () => {
         //axios.get('/api/playlist_songs/:id'
-        var resp = await axios.get("http://localhost:4200/api/playlist_songs/"+params.id);
-        console.log(resp.data.result)
+        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlist_songs/"+params.id);
+        console.log(resp.data.result, "hey")
         setSongs(resp.data.result)
     
         // setSongs(resp.data)
