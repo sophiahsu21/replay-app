@@ -25,18 +25,24 @@ const ViewProfile = () => {
     const history = useHistory();
     const params = useParams();
 
-    const getUserData = async () => {
+    // const getUserData = async () => {
 
-        const result = await axios.get('/api/users/')
-        // console.log(result, "user data");
+    //     const result = await axios.get('/api/users/')
+    //     // console.log(result, "user data");
 
-        const {data:{pictures:[{name}]}} = result
+    //     const {data:{pictures:[{name}]}} = result
 
-        console.log(name, "user data")
-        setUsername(name);
+    //     console.log(name, "user data")
+    //     setUsername(name);
 
-    }
+    // }
 
+    // const GetProfile = async () => {
+    //     var resp = await axios.get("http://localhost:4200/api/others");
+
+    //     console.log(resp, "gday");
+    // }
+    
     const getUserPlaylists = async () => {
         var resp2 = await axios.get("http://localhost:4200/api/user_playlists/"+ params.id);
     
@@ -54,14 +60,14 @@ const ViewProfile = () => {
         console.log(resp3, "hello")
     }
 
-    const handleOpen = () => {
-        setOpen(!open);
-    }
+    // const handleOpen = () => {
+    //     setOpen(!open);
+    // }
     useEffect(() => {
         // CheckToken();
         getUserPlaylists();
         GetLikedPlaylists();
-        getUserData();
+        // GetProfile();
     }, []);
 
     return (
@@ -69,7 +75,7 @@ const ViewProfile = () => {
                     <Avatar
                         profile={posts}
                         name={username}
-                        onClick={handleOpen}
+                        // onClick={handleOpen}
                     />
                 <div className="text"><h3>Playlists</h3></div>          
                 <div className="content">
