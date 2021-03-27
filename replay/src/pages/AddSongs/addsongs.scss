@@ -24,3 +24,11 @@
 .as-songCont::-webkit-scrollbar {
     display: none;
 }
+
+.pa-btnCont {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    position: absolute;
+    bottom: 50px;
+}
