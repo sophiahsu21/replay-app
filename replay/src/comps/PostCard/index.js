@@ -24,8 +24,8 @@ const User = styled.div`
 `;
 
 const Profile = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   margin-bottom:3px;
   border-radius: 50%;
   background: linear-gradient(180deg, rgba(240, 100, 73, 0.54) 0%, rgba(255, 255, 255, 0) 100%), rgba(194, 181, 181, 0.34);

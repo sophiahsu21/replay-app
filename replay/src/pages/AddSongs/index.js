@@ -23,7 +23,7 @@ const AddSongs = () => {
         //endpoint from song api?
         var resp = await axios.get("http://localhost:4200/api/all_songs");
         // console.log(resp.data.result)
-        var music = resp.data.result.slice(0, 3)
+        var music = resp.data.result.slice(0, 100)
         setSongs(music)
         setAllSongs(resp.data.result); //assuming this will be resp.data
 

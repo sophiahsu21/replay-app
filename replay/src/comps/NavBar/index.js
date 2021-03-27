@@ -178,7 +178,7 @@ const NavBar = ({ propActive }) => {
               ></PlusIcon>
             </PlusCont>  */}
 
-            <PlusCont  onClick={() => history.push("/AddSongs")} active={active}>
+            <PlusCont  onClick={() => history.push("/NewPlaylist")} active={active}>
               <PlusIcon>
                 <FiPlus size="24px" color="#F06449"/>
               </PlusIcon>

@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import {BsMusicNoteBeamed} from "react-icons/bs";
-
 import {
-    useHistory,
-    useParams
+    useHistory
 } from "react-router-dom";
 
 const NewPlaylist = () => {
 
     const history = useHistory();
-    const params = useParams();
-
+    
     const [playlist, setPlaylist] = useState("");
     const [user, setUser] = useState();
-
-
+    const [cover, setCover] = useState("");
+    
     const CheckToken = async () => {
         const resp = await axios.get("http://localhost:4200/api/profile");
 
@@ -30,10 +26,10 @@ const NewPlaylist = () => {
 
     const HandleCreatePlaylistName = async () => {
 
-        const resp = await axios.post("http://localhost:4200/api/playlists", {name:playlist});
+        const resp = await axios.post("http://localhost:4200/api/playlists", { name:playlist, image_url:cover });
         console.log(resp.data.result);
 
-       const foo = resp.data.result
+        const foo = resp.data.result
  
         history.push("/addSongs/"+ foo);
     }
@@ -45,18 +41,16 @@ const NewPlaylist = () => {
     return (
         <div className="np-container">
             <div className="cpCont">
-                <div className="playlistCoverCont">
-                    <h3>Add Playlist Cover</h3>
-                    <div className="playlistCover" onClick={() => {
-                        // upload photo
-                    }}>
-                        <BsMusicNoteBeamed color="#F5F5F5" size="48px" />
-                    </div>
-                </div>
+                <h3>Add Playlist Cover</h3>
+                    <input placeholder='Insert a URL' type='type' value={cover} onChange={(e) => {
+                        setCover(e.target.value)
+                    }} />
+                <br />
                 <h3>Add Playlist Name</h3>
                 <input type='text' placeholder='Name your playlist' onChange={(e) => {
                     setPlaylist(e.target.value)
                 }} />
+                <br />
                 <div className="btnCont">
                     <button className="cancel" onClick={() => history.push("/Register")}>Cancel</button>
                     <button className="create" onClick={HandleCreatePlaylistName}>Create</button>
