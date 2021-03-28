@@ -9,7 +9,7 @@ const InfoContainer = styled.div`
   align-items:center; 
 `;
 
-const Profile = styled.div`
+const Profile = styled.img`
   width: 145px;
   height: 145px;
   border-radius: 50%;
@@ -19,9 +19,9 @@ const Profile = styled.div`
   display:flex;
   align-items:center;
   justify-content:center;
-  background-repeat: no-repeat; 
-  object-fit:contain;
+  object-fit: cover;
   overflow:hidden;
+  background-repeat: no-repeat;
   & > img {
     width:auto;
     height:100%;
@@ -32,9 +32,7 @@ const Profile = styled.div`
 const Avatar = ({ profile, name, onClick }) => {
   return (
     <InfoContainer onClick={onClick}>
-      <Profile>
-        <img src={profile} />
-      </Profile>
+      <Profile src={profile} />
       <h2>{name}</h2>
     </InfoContainer>
   );
