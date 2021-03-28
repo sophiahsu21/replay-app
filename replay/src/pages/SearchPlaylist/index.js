@@ -23,8 +23,8 @@ const SearchPlaylist = () => {
 
     const getPlaylists = async () => {
 
-        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/users/playlists");
-        var music = resp.data.playlists.slice(0,3);
+        var resp = await axios.get("https://replay-music-app.herokuapp.com/api/playlists");
+        var music = resp.data.playlists.slice(0,100);
         setPlaylist(music)
  
         setAllPlaylists(resp.data.playlists); 
