@@ -51,7 +51,7 @@ const SearchPlaylist = () => {
             onChange={(e) => {
                 FilterSongs(e.target.value);
             }}  
-            onClick={() => history.push("/PlaylistAdd")}  
+            onClick={() => history.push("/Home")}  
         />
         <div className="as-songCont">
             {playlist.map((o) => {
