@@ -33,8 +33,6 @@ const Avatar = ({ profile, name, onClick }) => {
   return (
     <InfoContainer onClick={onClick}>
       <Profile src={profile} />
-        {/* <img src={profile} />
-      </Profile> */}
       <h2>{name}</h2>
     </InfoContainer>
   );
