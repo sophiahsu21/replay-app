@@ -12,6 +12,7 @@ import Profile from 'pages/Profile';
 import ViewPlaylist from 'pages/ViewPlaylist';
 import ViewProfile from 'pages/ViewProfile';
 import Modal from 'comps/Modal';
+import Home from 'pages/Home';
 
 import {
   BrowserRouter as Router,
