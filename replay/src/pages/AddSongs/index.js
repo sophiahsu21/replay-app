@@ -31,7 +31,8 @@ const AddSongs = () => {
 
     const handleAdd = (id) =>{
         var resp = axios.post('https://replay-music-app.herokuapp.com/api/add_songs', {song_id:id, playlist_id:params.id})
-        console.log(id)   
+        console.log(id)
+        console.log("")
     }
 
 
