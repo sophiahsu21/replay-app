@@ -6,7 +6,7 @@ import LogIn from './pages/LogIn';
 import Register from './pages/Register';
 import NewPlaylist from './pages/NewPlaylist';
 import AddSongs from './pages/AddSongs';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import SearchPlaylist from './pages/SearchPlaylist';
 import Profile from './pages/Profile';
 import ViewPlaylist from './pages/ViewPlaylist';
@@ -45,7 +45,7 @@ function App() {
             <AddSongs />
           </Route>
           <Route exact path="/Home">
-            <Home />
+            <HomePage />
           </Route>
           <Route exact path="/SearchPlaylist">
             <SearchPlaylist />

@@ -1,0 +1,29 @@
+.home-container {
+
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-cont{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .home-text{
+        margin-left:30px;
+    }
+}
+
+
