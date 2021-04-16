@@ -1,18 +1,17 @@
 import './App.scss';
 
 //import pages
-import LandingPage from 'pages/LandingPage';
-import LogIn from 'pages/LogIn';
-import Register from 'pages/Register';
-import NewPlaylist from 'pages/NewPlaylist';
-import AddSongs from 'pages/AddSongs';
-import Home from 'pages/Home';
-import SearchPlaylist from 'pages/SearchPlaylist';
-import Profile from 'pages/Profile';
-import ViewPlaylist from 'pages/ViewPlaylist';
-import ViewProfile from 'pages/ViewProfile';
+import LandingPage from './pages/LandingPage';
+import LogIn from './pages/LogIn';
+import Register from './pages/Register';
+import NewPlaylist from './pages/NewPlaylist';
+import AddSongs from './pages/AddSongs';
+import Home from './pages/Home';
+import SearchPlaylist from './pages/SearchPlaylist';
+import Profile from './pages/Profile';
+import ViewPlaylist from './pages/ViewPlaylist';
+import ViewProfile from './pages/ViewProfile';
 import Modal from 'comps/Modal';
-import Home from 'pages/Home';
 
 import {
   BrowserRouter as Router,
